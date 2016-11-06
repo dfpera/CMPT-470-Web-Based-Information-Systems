@@ -15,3 +15,20 @@ end
 execute 'ntp_restart' do
   command 'service ntp restart'
 end
+
+#install ruby
+package "ruby"
+package "ruby-dev"
+package "libsqlite3-dev"
+package "sqlite3"
+package "zlib1g-dev"
+package "nodejs"
+package "build-essential"
+
+execute 'gem_bundler' do
+  command 'gem install bundler --conservative'
+end
+
+execute 'gem_rails' do
+	command 'gem install rails'
+end
