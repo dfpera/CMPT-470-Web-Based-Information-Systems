@@ -26,6 +26,11 @@ package "nodejs"
 package "build-essential"
 package "mysql-server"
 package "libmysqlclient-dev"
+package "npm"
+
+execute 'install_boostrap' do
+  command 'npm install bootstrap'
+end
 
 execute 'gem_bundler' do
   command 'gem install bundler --conservative'
