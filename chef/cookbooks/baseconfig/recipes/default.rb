@@ -20,10 +20,12 @@ end
 package "ruby"
 package "ruby-dev"
 package "libsqlite3-dev"
-package "sqlite3"
+# package "sqlite3"
 package "zlib1g-dev"
 package "nodejs"
 package "build-essential"
+package "mysql-server"
+package "libmysqlclient-dev"
 
 execute 'gem_bundler' do
   command 'gem install bundler --conservative'
