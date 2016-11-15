@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  UID: 
+  noteID: 
+  tagName: MyString
+  pinned: false
+
+two:
+  UID: 
+  noteID: 
+  tagName: MyString
+  pinned: false
