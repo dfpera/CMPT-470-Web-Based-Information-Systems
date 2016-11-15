@@ -36,6 +36,21 @@ execute 'gem_bundler' do
   command 'gem install bundler --conservative'
 end
 
+execute 'bundle' do
+  command 'bundle install'
+  cwd '/home/ubuntu/project/noted/bin'
+  user 'ubuntu'
+end
+
+execute 'init_DB' do
+  command 'sudo mysql -u root < "/home/ubuntu/project/data/init.sql"'
+end
+
 execute 'gem_rails' do
 	command 'gem install rails'
+end
+
+execute 'server' do
+  command 'rails server -d -b 0.0.0.0'
+  cwd '/home/ubuntu/project/noted/bin'
 end
