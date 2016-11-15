@@ -32,13 +32,17 @@ execute 'install_boostrap' do
   command 'npm install bootstrap'
 end
 
+execute 'install_nokogiri' do
+    command 'sudo gem install nokogiri'
+end
+
 execute 'gem_bundler' do
-  command 'gem install bundler --conservative'
+  command 'sudo gem install bundler --conservative'
 end
 
 execute 'bundle' do
   command 'bundle install'
-  cwd '/home/ubuntu/project/noted/bin'
+  cwd '/home/ubuntu/project/noted'
   user 'ubuntu'
 end
 
