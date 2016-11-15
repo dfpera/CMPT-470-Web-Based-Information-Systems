@@ -53,8 +53,3 @@ end
 execute 'gem_rails' do
 	command 'gem install rails'
 end
-
-execute 'server' do
-  command 'rails server -d -b 0.0.0.0'
-  cwd '/home/ubuntu/project/noted/bin'
-end
