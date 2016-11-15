@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       resources :tags
     end
   end
+
+  root 'accounts#index'
 end
