@@ -9,18 +9,22 @@ class NotesController < ApplicationController
 		else
 			render ‘new’
 		end
+	end
 
 	def edit
 		@notes = Notes.find(params[:noteId])
+	end
 
 	def new
 		@notes = Notes.new
+	end
 
 	def show
 		@notes = Note.find(params[:noteId])
+	end
 
 	private 
 		def note_params			
-			params.require(:notes).permit(:title,:text,:tags:timeStamp,:noteId,:uid)
+			params.require(:notes).permit(:title,:text,:tags,:timeStamp,:noteId,:uid)
 		end
 end

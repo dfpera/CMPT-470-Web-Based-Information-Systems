@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
 
 	def create
 		@account = Account.new(account_params)
+	end
 	private
 		def account_params
 			params.require(:account).permit(:emailAddress, :firstName,   :lastName, :password)
