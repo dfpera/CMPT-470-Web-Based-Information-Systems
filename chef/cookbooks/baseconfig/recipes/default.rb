@@ -33,7 +33,7 @@ execute 'install_boostrap' do
 end
 
 execute 'install_nokogiri' do
-    command 'sudo gem install nokogiri'
+  command 'sudo gem install nokogiri'
 end
 
 execute 'gem_bundler' do
@@ -56,4 +56,5 @@ end
 
 execute 'DB_migrate' do
   command 'sudo rails db:migrate'
+  cwd '/home/ubuntu/project/noted'
 end
