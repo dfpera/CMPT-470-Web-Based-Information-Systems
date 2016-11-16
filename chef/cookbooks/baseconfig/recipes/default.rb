@@ -33,7 +33,7 @@ execute 'install_boostrap' do
 end
 
 execute 'install_nokogiri' do
-    command 'sudo gem install nokogiri'
+  command 'sudo gem install nokogiri'
 end
 
 execute 'gem_bundler' do
@@ -46,15 +46,15 @@ execute 'bundle' do
   user 'ubuntu'
 end
 
-execute 'init_DB' do
-  command 'sudo mysql -u root < "/home/ubuntu/project/data/init.sql"'
-end
-
 execute 'gem_rails' do
 	command 'gem install rails'
 end
 
-execute 'server' do
-  command 'rails server -d -b 0.0.0.0'
-  cwd '/home/ubuntu/project/noted/bin'
+execute 'init_DBs' do
+  command 'sudo mysql -u root < "/home/ubuntu/project/data/init.sql"'
+end
+
+execute 'DB_migrate' do
+  command 'sudo rails db:migrate'
+  cwd '/home/ubuntu/project/noted'
 end
