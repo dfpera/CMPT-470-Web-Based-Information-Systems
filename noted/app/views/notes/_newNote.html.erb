@@ -1,13 +1,12 @@
-<%= form_for @note, :html=> {:class => "form-horizontal"} do |f| %>
+<%= form_for Note.new, url: account_note_path, :html=> {:class => "form-horizontal"} do |f| %>
 	
 	<div class="form-group">
 		<%= f.text_field :title, class: "form-control", placeholder: "Title" %>
 	</div>
 	<div class="form-group">
-		<%= f.text_area :content, class: "form-control", placeholder: "Record your note..." %>
+		<%= f.text_area :text, class: "form-control", placeholder: "Record your note..." %>
 	</div>
 	<div class="form-group">
-		<%= f.text_field :title, class: "form-control", placeholder: "Tags" %>
 	</div>
 
 	<%= f.button "Close", class: "form-btn btn-default pull-left", "data-dismiss" => "modal" %>
