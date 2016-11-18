@@ -1,4 +1,5 @@
 class Note < ApplicationRecord
-	has_one :tag
+	belongs_to :account
+	has_and_belongs_to_many :tags
   accepts_nested_attributes_for :tag
 end

@@ -10,38 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115233214) do
+ActiveRecord::Schema.define(version: 20161118203547) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "username"
-    t.string   "password"
+    t.string   "username",   null: false
+    t.string   "password",   null: false
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_accounts_on_username", using: :btree
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "account_id"
     t.string   "title"
     t.text     "text",       limit: 65535
-    t.integer  "account_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["account_id"], name: "index_notes_on_account_id", using: :btree
   end
 
+  create_table "notes_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "note_id"
+    t.integer "tag_id"
+    t.index ["note_id", "tag_id"], name: "index_notes_tags_on_note_id_and_tag_id", using: :btree
+  end
+
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "tag_name"
-    t.integer  "account_id"
-    t.integer  "note_id"
     t.boolean  "pinned"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_tags_on_account_id", using: :btree
-    t.index ["note_id"], name: "index_tags_on_note_id", using: :btree
   end
 
-  add_foreign_key "notes", "accounts"
-  add_foreign_key "tags", "accounts"
-  add_foreign_key "tags", "notes"
 end
