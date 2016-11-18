@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+	before_filter :authenticate
+
 	def index
 		#Get all notes where notes.account_id == account_id
 		#account_id is retrieved from the url
@@ -30,5 +32,14 @@ class NotesController < ApplicationController
 	private 
 		def note_params
 			params.require(:note).permit(:title,:text,:account_id)
+		end
+
+		def authenticate
+			if Account.find(params[:account_id]).id == session[:user_id]
+				return true
+			else
+				redirect_to login_path
+				return false
+			end
 		end
 end

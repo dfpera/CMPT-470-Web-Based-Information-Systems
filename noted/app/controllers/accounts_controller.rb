@@ -10,12 +10,11 @@ class AccountsController < ApplicationController
 	end
 
 	def create
-		account = Account.new(account_params)
-		if account.save
-			redirect_to account_notes_path(account)
-			#todo: code for sessions
+		@account = Account.new(account_params)
+		if @account.save
+			session[:user_id] = @account.id
+			redirect_to account_notes_path(@account)
 		else
-			#todo: pass error
 			render 'new'
 		end
 	end
