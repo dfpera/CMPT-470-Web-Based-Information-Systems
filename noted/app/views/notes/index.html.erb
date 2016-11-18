@@ -18,10 +18,21 @@
 		<!--Left bar-->
 
 		<!--Notes taken will appear here if not already in a group-->
-
+	
 		<!--Tags bar-->
 	  	<div class="col-md-3 leftbar">
-	  		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#new_note"><span class="glyphicon glyphicon-plus"></span>Note</button>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#new_note"><span class="glyphicon glyphicon-plus"></span>Note</button>
+
+			<% @notes.each do |note| %>
+	    <tr>
+	    	<div class="panel panel-default">
+	    		<div class = "panel-heading"><%= note.title %></div>
+	    		<div class = "panel-body"><%= note.text %></div>
+	    	</div>
+	    </tr>
+	  	<% end %>
+
+
 			<div class="panel panel-default">
 	  			<div class="panel-body">
 	  				<div class="panel-title pull-left">Tags |</div>
