@@ -5,6 +5,8 @@ class NotesController < ApplicationController
 		#Get all notes where notes.account_id == account_id
 		#account_id is retrieved from the url
 		@notes = Note.where(:account_id => params[:account_id])
+		@tags = Tag.where(:account_id => params[:account_id])
+		@tagNames = @tags.select('DISTINCT tag_name')
 	end
 
 	def create
@@ -14,6 +16,12 @@ class NotesController < ApplicationController
 		@note.account_id = params[:account_id]
 
 		if @note.save
+			
+			@tag = Tag.new(tag_params)
+			@tag.account_id = params[:account_id]
+			@tag.note_id = @note.id
+			@tag.save
+
 			redirect_to account_notes_path(@account)
 		else
 			render ‘new’
@@ -23,6 +31,7 @@ class NotesController < ApplicationController
 	def new
 		@account = Account.find(params[:account_id])
 		@note = Note.new
+		@tag = Tag.new
 	end
 
 	def show
@@ -32,6 +41,10 @@ class NotesController < ApplicationController
 	private 
 		def note_params
 			params.require(:note).permit(:title,:text,:account_id)
+		end
+
+		def tag_params
+			params.require(:tag).permit(:tag_name)
 		end
 
 		def authenticate

@@ -72,6 +72,26 @@
 			</nav>
 			<!--Groups Area-->
 			<!--Notes taken will appear here if in a group-->
+			<% @tagNames.each do |tagName| %>
+		    <tr>
+		    	<div class="panel panel-default">
+		    		<div class = "panel-heading"><%= tagName.tag_name %></div>
+		    		<div class = "panel-body">
+		    			<% @tags.each do |tag| %>
+		    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
+		    					<% tag_note = @notes.find_by_id(tag.note_id) %>
+		    					<% if tag_note != nil %>
+			    					<div class="panel panel-default">
+							    		<div class = "panel-heading"><%= tag_note.title%></div>
+							    		<div class = "panel-body"><%= tag_note.text%></div>
+							    	</div>
+							    <% end %>
+					   		<% end %>
+					  	<% end %>
+		    		</div>
+		    	</div>
+		    </tr>
+	  	<% end %>
 
 		</div>
 	</div>
@@ -95,6 +115,8 @@ tags
 			<div class="modal-body">
 		      	<form class="form-hotizontal">
 					<div class="form-group">
+						<code>NOTE : THIS DOES NOT WORK YET</code>
+						<%= link_to 'go here instead', new_account_note_path %>
 						<input type="title" class="form-control" id="title" placeholder="Title">
 					</div>
 					<div class="form-group">
@@ -125,7 +147,7 @@ group
 			<div class="modal-body">
 		      	<form class="form-hotizontal">
 					<div class="form-group">
-						<label for="group">New Group : </label>
+						<label for="group"><code>New Group : NOTE : THIS DOES NOT WORK YET (tags can be created during note creation)</code></label>
 						<input type="text" class="form-control" id="group" placeholder="Group Name">
 					</div>
 					<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
