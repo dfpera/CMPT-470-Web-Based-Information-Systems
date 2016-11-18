@@ -1,30 +1,34 @@
 class NotesController < ApplicationController
 	def index
+		#Get all notes where notes.account_id == account_id
+		#account_id is retrieved from the url
+		@notes = Note.where(:account_id => params[:account_id])
 	end
 
 	def create
-		@notes = Notes.new(note_params)
-		if @notes.save
-			redirect_to @notes
+		@account = Account.find(params[:account_id])
+		@note = Note.new(note_params)
+
+		@note.account_id = params[:account_id]
+
+		if @note.save
+			redirect_to account_notes_path(@account)
 		else
 			render ‘new’
 		end
 	end
 
-	def edit
-		@notes = Notes.find(params[:noteId])
-	end
-
 	def new
-		@notes = Notes.new
+		@account = Account.find(params[:account_id])
+		@note = Note.new
 	end
 
 	def show
-		@notes = Note.find(params[:noteId])
+		@notes = Note.all
 	end
 
 	private 
-		def note_params			
-			params.require(:notes).permit(:title,:text,:tags,:timeStamp,:noteId,:uid)
+		def note_params
+			params.require(:note).permit(:title,:text,:account_id)
 		end
 end
