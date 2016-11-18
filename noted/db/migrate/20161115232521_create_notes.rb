@@ -3,10 +3,10 @@ class CreateNotes < ActiveRecord::Migration[5.0]
     create_table :notes do |t|
       t.string :title
       t.text :text
-      t.integer :UID
-      t.timestamp :lastUpdated
+      t.references :account, index: true
 
       t.timestamps
     end
+    add_foreign_key :notes, :accounts
   end
 end
