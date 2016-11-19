@@ -30,12 +30,6 @@ ActiveRecord::Schema.define(version: 20161115233214) do
     t.index ["account_id"], name: "index_notes_on_account_id", using: :btree
   end
 
-  create_table "notes_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "note_id"
-    t.integer "tag_id"
-    t.index ["note_id", "tag_id"], name: "index_notes_tags_on_note_id_and_tag_id", using: :btree
-  end
-
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "tag_name"
     t.integer  "account_id"
