@@ -24,7 +24,7 @@ class NotesController < ApplicationController
 
 			redirect_to account_notes_path(@account)
 		else
-			render ‘new’
+			render 'new'
 		end
 	end
 
@@ -51,6 +51,7 @@ class NotesController < ApplicationController
 			if Account.find(params[:account_id]).id == session[:user_id]
 				return true
 			else
+				flash[:error] = "You are not signed in to that account"
 				redirect_to login_path
 				return false
 			end

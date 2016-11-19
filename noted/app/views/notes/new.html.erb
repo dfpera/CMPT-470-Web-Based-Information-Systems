@@ -1,21 +1,25 @@
-<%= form_for ([@account,@note]) do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
-  
-  <%= fields_for :tag do |u| %>
-      <%= u.label :tag %><br />
-      <%= u.text_field :tag_name %>
-  <% end %>
-  
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= form_for ([@account,@note]) do |f| %>
+        <div class="form-group">
+          <%= f.label :title %><br>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+       
+        <div class="form-group">
+          <%= f.label :text %><br>
+          <%= f.text_area :text, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+        <%= fields_for :tag do |u| %>
+            <%= u.label :tag %><br />
+            <%= u.text_field :tag_name, class: "form-control" %>
+        <% end %>
+        </div>
+        <%= f.submit "Submit", class: "btn btn-default pull-left" %>
+      <% end %>
+    </div>
+  </div>
+</div>

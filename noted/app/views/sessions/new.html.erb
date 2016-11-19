@@ -4,7 +4,7 @@
 			<h4>Sign In</h4>
 			<%= form_for(:session, url: login_path) do |f| %>
 				<div class="form-group">
-					<%= f.text_field :username, class: "form-control", placeholder: "Email" %>
+					<%= f.text_field :username, class: "form-control", placeholder: "Username" %>
 				</div>
 				<div class="form-group">
 					<%= f.password_field :password, class: "form-control", placeholder: "Password" %>
