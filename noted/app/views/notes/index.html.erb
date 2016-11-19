@@ -1,27 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Noted</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <%= stylesheet_link_tag "styles.css" %>
-</head>
-<body>
-
-
-
 <div class="container-fluid">
 	<div class="row row-no-pad">
 		<!--Left bar-->
 
 		<!--Notes taken will appear here if not already in a group-->
-
+	
 		<!--Tags bar-->
 	  	<div class="col-md-3 leftbar">
-	  		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#new_note"><span class="glyphicon glyphicon-plus"></span>Note</button>
+	  		<%= link_to new_account_note_path, type:"button", class: "btn btn-default" do %>
+	  			<span class="glyphicon glyphicon-plus"></span>Note
+	  		<% end %>
+
+			<% @notes.each do |note| %>
+	    <tr>
+	    	<div class="panel panel-default">
+	    		<div class = "panel-heading"><%= note.title %></div>
+	    		<div class = "panel-body"><%= note.text %></div>
+	    	</div>
+	    </tr>
+	  	<% end %>
+
+
 			<div class="panel panel-default">
 	  			<div class="panel-body">
 	  				<div class="panel-title pull-left">Tags |</div>
@@ -40,36 +38,41 @@
 					        <span class="icon-bar"></span>
 					        <span class="icon-bar"></span>
 					    </button>    
-					    <a class="navbar-brand" href="#">Noted</a>
+					    <a class="navbar-brand" href="">Noted</a>
 				    </div>
 				    <div class="navbar-collapse collapse" id="NavBar">
-					    <ul class="nav navbar-nav navbar-left">
-					    	<!--New Group-->
-					        <li><a href="#" data-toggle="modal" data-target="#new_group"><span class="glyphicon glyphicon-plus"></span> New Group</a></li>
-					    </ul>
 					    <ul class="nav navbar-nav navbar-right">
-					    	<li class="dropdown">
-					        	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account</a>
-					        	<ul class="dropdown-menu">
-					        		<!--Logout-->
-					        		<li><a href="#">Logout</a></li>
-					        	</ul>
-				      		</li>
+					        <li><%= link_to "Logout", logout_path%></li>
 				    	</ul>
 				    </div>
 				</div>
 			</nav>
 			<!--Groups Area-->
 			<!--Notes taken will appear here if in a group-->
+			<% @tagNames.each do |tagName| %>
+		    <tr>
+		    	<div class="panel panel-default">
+		    		<div class = "panel-heading"><%= tagName.tag_name %></div>
+		    		<div class = "panel-body">
+		    			<% @tags.each do |tag| %>
+		    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
+		    					<% tag_note = @notes.find_by_id(tag.note_id) %>
+		    					<% if tag_note != nil %>
+			    					<div class="panel panel-default">
+							    		<div class = "panel-heading"><%= tag_note.title%></div>
+							    		<div class = "panel-body"><%= tag_note.text%></div>
+							    	</div>
+							    <% end %>
+					   		<% end %>
+					  	<% end %>
+		    		</div>
+		    	</div>
+		    </tr>
+	  	<% end %>
 
 		</div>
 	</div>
 </div>
-
-
-
-</body>
-
 <!-- Add Notes Modal -->
 <!--
 User will enter
@@ -84,6 +87,8 @@ tags
 			<div class="modal-body">
 		      	<form class="form-hotizontal">
 					<div class="form-group">
+						<code>NOTE : THIS DOES NOT WORK YET</code>
+						<%= link_to 'go here instead', new_account_note_path %>
 						<input type="title" class="form-control" id="title" placeholder="Title">
 					</div>
 					<div class="form-group">
@@ -114,7 +119,7 @@ group
 			<div class="modal-body">
 		      	<form class="form-hotizontal">
 					<div class="form-group">
-						<label for="group">New Group : </label>
+						<label for="group"><code>New Group : NOTE : THIS DOES NOT WORK YET (tags can be created during note creation)</code></label>
 						<input type="text" class="form-control" id="group" placeholder="Group Name">
 					</div>
 					<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -126,5 +131,3 @@ group
 
 	</div>
 </div>
-
-</html>
