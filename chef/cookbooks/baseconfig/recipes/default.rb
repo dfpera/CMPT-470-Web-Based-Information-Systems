@@ -58,3 +58,8 @@ execute 'DB_migrate' do
   command 'sudo rails db:migrate'
   cwd '/home/ubuntu/project/noted'
 end
+
+execute 'server' do
+  command 'rails server -d -b 0.0.0.0'
+  cwd '/home/ubuntu/project/noted/bin'
+end
