@@ -16,11 +16,16 @@ class NotesController < ApplicationController
 		@note.account_id = params[:account_id]
 
 		if @note.save
-			
-			@tag = Tag.new(tag_params)
-			@tag.account_id = params[:account_id]
-			@tag.note_id = @note.id
-			@tag.save
+			tags = params[:tags]
+			if tags
+				tags.each do |tag|
+					@tag = Tag.new()
+					@tag.tag_name = tag
+					@tag.account_id = params[:account_id]
+					@tag.note_id = @note.id
+					@tag.save
+				end
+			end
 
 			redirect_to account_notes_path(@account)
 		else
@@ -41,10 +46,6 @@ class NotesController < ApplicationController
 	private 
 		def note_params
 			params.require(:note).permit(:title,:text,:account_id)
-		end
-
-		def tag_params
-			params.require(:tag).permit(:tag_name)
 		end
 
 		def authenticate

@@ -11,15 +11,36 @@
           <%= f.label :text %><br>
           <%= f.text_area :text, class: "form-control" %>
         </div>
-        
-        <div class="form-group">
-        <%= fields_for :tag do |u| %>
-            <%= u.label :tag %><br />
-            <%= u.text_field :tag_name, class: "form-control" %>
-        <% end %>
+        <div class="form-group" id="tags-form">
+          <input type="text" class="form-control" id="tags" placeholder="Tags (Press Enter after each tag)">
         </div>
+        <ul class="list-inline" id="tag-list">
+        </ul>
         <%= f.submit "Submit", class: "btn btn-default pull-left" %>
       <% end %>
     </div>
   </div>
 </div>
+<% content_for :script do %>
+<script>
+  $(document).ready(function () {
+    var tags = [];
+    $(window).keydown(function (e) {
+      if(e.keyCode == 13) {
+        e.preventDefault();
+      }
+    });
+    $('#tags').keyup(function (e) {
+      if(e.keyCode == 13) {
+        var tag = $('#tags').val();
+        if(tag && (tags.indexOf(tag) < 0)) {
+          tags.push(tag);
+          $('#tag-list').append('<li><h4><span class="label label-primary">' + tag + '</span></h4>');
+          $('#tags-form').append('<input type="hidden" name="tags[]" id="tags_" value="' + tag + '" />');
+          $('#tags').val('');
+        }
+      }
+    });
+  });
+</script>
+<% end %>
