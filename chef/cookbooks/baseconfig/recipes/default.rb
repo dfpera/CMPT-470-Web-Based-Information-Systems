@@ -59,7 +59,3 @@ execute 'DB_migrate' do
   cwd '/home/ubuntu/project/noted'
 end
 
-execute 'server' do
-  command 'rails server -d -b 0.0.0.0'
-  cwd '/home/ubuntu/project/noted/bin'
-end

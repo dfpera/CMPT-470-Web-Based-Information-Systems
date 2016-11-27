@@ -1,3 +1,129 @@
 // Place all the styles related to the Notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap-sprockets';
+@import "bootstrap";
+
+$leftNav-height: 50px;
+$leftTag-height: 80px;
+$pad: 10px;
+
+.leftbar{
+	background-color: #545c68;
+	padding: 0px;
+	height: 100vh;
+}
+
+.leftbar .leftNav{
+	height: $leftNav-height;
+}
+
+.leftbar .leftNav .navButtons{
+	height: 48px;
+
+}
+
+.leftNavButtons{
+  background-color: transparent;  
+}
+
+.leftbar .leftNav .line{
+	height: 2px;
+	background-color: white;
+}
+
+.notes{
+	margin-top: $pad;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height});
+  height:-moz-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height});
+  height:-webkit-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height});
+  padding-right: $pad;
+  padding-left: $pad;
+}
+
+
+.notesBox{
+	border-style: none;
+	margin-bottom: $pad;
+	padding-left: 0px;
+	padding-right: 0px;
+
+}
+
+.notesBox > .panel-heading{
+	background-color: #2a7eb4;
+	color: white;
+}
+
+.noteDate{
+	font-size: 10px;
+	text-align: right;
+}
+
+
+.leftTag{
+	height: $leftTag-height;
+	padding: $pad;
+}
+.tagBox{
+	height: $leftTag-height - 20px;	
+	margin: 0;
+}
+
+
+.rightbar{
+	background-color: #2e4f68;
+ 	padding-left: 0;
+  padding-right: 0;
+  height: 100vh;
+}
+
+.groupsArea{
+	padding-top: $pad;
+	padding-left: $pad;
+	padding-right: $pad;
+	overflow-y: scroll;
+	height:calc(100% - 50px);
+  height:-moz-calc(100% - 50px);
+  height:-webkit-calc(100% - 50px);
+}
+
+.navbar{
+	background-color: #2a7eb4;
+	border: none;
+	padding-left: 0;
+	box-shadow: none;
+	margin:0;
+}
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  
+    display: block;
+}
+
+.navbar-default .navbar-brand
+{
+	color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.glyphicon{
+	font-size: 16px;
+}
+
+.mobileTabs{
+	padding-top: $pad;
+	padding-left: $pad;
+	padding-right: $pad;
+	overflow-y: scroll;
+	height:calc(100% - 50px);
+  height:-moz-calc(100% - 50px);
+  height:-webkit-calc(100% - 50px);
+}
+

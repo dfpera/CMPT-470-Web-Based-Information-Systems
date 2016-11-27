@@ -3,72 +3,168 @@
 		<!--Left bar-->
 
 		<!--Notes taken will appear here if not already in a group-->
-	
-		<!--Tags bar-->
-	  	<div class="col-md-3 leftbar">
-	  		<%= link_to new_account_note_path, type:"button", class: "btn btn-default" do %>
-	  			<span class="glyphicon glyphicon-plus"></span>Note
-	  		<% end %>
+		<span class = "visible-lg visible-md">
+	  	<div class="col-lg-3 col-md-4 leftbar">
 
-			<% @notes.each do |note| %>
-	    <tr>
-	    	<div class="panel panel-default">
-	    		<div class = "panel-heading"><%= note.title %></div>
-	    		<div class = "panel-body"><%= note.text %></div>
-	    	</div>
-	    </tr>
-	  	<% end %>
+	  		<div class="leftNav">
+  				<div class="navButtons">
+			  		<%= link_to new_account_note_path, type:"button", class: "btn btn-default leftNavButtons" do %>
+			  		<span class="glyphicon glyphicon-plus" style="color:white"></span>
+			  		<% end %>
+		  		</div>
+		  		<div class="line"></div>
+	  		</div>
 
 
-			<div class="panel panel-default">
-	  			<div class="panel-body">
-	  				<div class="panel-title pull-left">Tags |</div>
-	  			</div>
-			</div>
+
+		  	<div class="notes">
+					<% @notes.each do |note| %>
+			    <tr>
+			    	<div class="panel panel-default container-fluid notesBox">
+			    		<div class = "panel-heading">
+				    		<div class="row row-no-pad">
+				    			<div class= "col-xs-11 noteTitle">
+				    				<%= note.title %> 
+				    			</div>
+				    			<div clas= "col-xs-1 deleteNote">
+				    				<!--Delete Buton for note-->
+				    				<span class="glyphicon glyphicon-remove" style="color:white"></span>
+				    			</div>
+				    		</div>
+
+				    		<div class="row row-no-pad">
+				    			<div class= "col-xs-12 noteDate">
+				    				<%= note.updated_at %> 
+				    			</div>
+				    		</div>
+			    		</div>
+			    		<div class = "panel-body"><%= note.text %></div>
+			    	</div>
+			    </tr>
+			  	<% end %>
+		  	</div>
+			
+		  	<div class="leftTag">
+			  	<div class="panel panel-default tagBox">
+			  	<div class = "panel-body"></div>
+			  	</div>
+		  	</div>
+
 	  	</div>
-
+	  </span>
 
 	  	<!--Right bar-->
-	  	<div class="col-md-9 rightbar">
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-				 	<div class="navbar-header">
-				    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavBar">
-							<span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					    </button>    
-					    <a class="navbar-brand" href="">Noted</a>
-				    </div>
-				    <div class="navbar-collapse collapse" id="NavBar">
-					    <ul class="nav navbar-nav navbar-right">
-					        <li><%= link_to "Logout", logout_path%></li>
-				    	</ul>
-				    </div>
-				</div>
-			</nav>
-			<!--Groups Area-->
-			<!--Notes taken will appear here if in a group-->
-			<% @tagNames.each do |tagName| %>
-		    <tr>
-		    	<div class="panel panel-default">
-		    		<div class = "panel-heading"><%= tagName.tag_name %></div>
-		    		<div class = "panel-body">
-		    			<% @tags.each do |tag| %>
-		    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
-		    					<% tag_note = @notes.find_by_id(tag.note_id) %>
-		    					<% if tag_note != nil %>
-			    					<div class="panel panel-default">
-							    		<div class = "panel-heading"><%= tag_note.title%></div>
-							    		<div class = "panel-body"><%= tag_note.text%></div>
+	  	<div class="col-lg-9 col-md-8 rightbar">
+
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+
+					 	<div class="navbar-header">
+					    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavBar">
+								<span class="icon-bar"></span>
+					      <span class="icon-bar"></span>
+					      <span class="icon-bar"></span>
+						  </button>    
+							<a class="navbar-brand" href="">Noted</a>
+					  </div>
+
+					  <div class="navbar-collapse collapse" id="NavBar">
+							<ul class="nav navbar-nav navbar-left">
+								<li class="hidden-md hidden-lg"><a href="#" data-toggle="modal" data-target="#new_note"><span class="glyphicon glyphicon-plus"></span> </a></li>
+								<li><a href="#" data-toggle="modal" data-target="#new_group"><span class="glyphicon glyphicon-list-alt"></span> </a></li>
+						  </ul>
+
+						  <ul class="nav navbar-nav navbar-right">
+						  	<li class="dropdown">
+						  			<li><%= link_to "Logout", logout_path%></li>
+						  	</li>
+					    </ul>
+					   </div>
+
+					</div>
+				</nav>
+				<!--Groups Area-->
+				<!--Notes taken will appear here if in a group-->
+				<div class="groupsArea visible-lg visible-md">
+					<% @tagNames.each do |tagName| %>
+				    <tr>
+				    	<div class="panel panel-default">
+				    		<div class = "panel-heading"><%= tagName.tag_name %></div>
+				    		<div class = "panel-body">
+				    			<% @tags.each do |tag| %>
+				    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
+				    					<% tag_note = @notes.find_by_id(tag.note_id) %>
+				    					<% if tag_note != nil %>
+					    					<div class="panel panel-default">
+									    		<div class = "panel-heading"><%= tag_note.title%></div>
+									    		<div class = "panel-body"><%= tag_note.text%></div>
+									    	</div>
+									    <% end %>
+							   		<% end %>
+							  	<% end %>
+				    		</div>
+				    	</div>
+				    </tr>
+			  	<% end %>
+			  </div>
+
+		  	<div class = "mobileTabs visible-sm visible-xs">
+		  		<ul class="nav nav-tabs">
+				    <li class="active"><a data-toggle="tab" href="#notes">Notes</a></li>
+				    <li><a data-toggle="tab" href="#groups">Groups</a></li>
+				  </ul>
+
+					<div class="tab-content">
+						<div id="notes" class="tab-pane fade in active">
+							<% @notes.each do |note| %>
+						    <tr>
+						    	<div class="panel panel-default container-fluid notesBox">
+						    		<div class = "panel-heading">
+							    		<div class="row row-no-pad">
+							    			<div class= "col-xs-11 noteTitle">
+							    				<%= note.title %> 
+							    			</div>
+							    			<div clas= "col-xs-1 deleteNote">
+							    				<!--Delete Buton for note-->
+							    				<span class="glyphicon glyphicon-remove" style="color:white"></span>
+							    			</div>
+							    		</div>
+
+							    		<div class="row row-no-pad">
+							    			<div class= "col-xs-12 noteDate">
+							    				<%= note.updated_at %> 
+							    			</div>
+							    		</div>
+						    		</div>
+						    		<div class = "panel-body"><%= note.text %></div>
+						    	</div>
+						    </tr>
+						  	<% end %>
+						</div>
+						<div id="groups" class="tab-pane fade">
+								<% @tagNames.each do |tagName| %>
+							    <tr>
+							    	<div class="panel panel-default">
+							    		<div class = "panel-heading"><%= tagName.tag_name %></div>
+							    		<div class = "panel-body">
+							    			<% @tags.each do |tag| %>
+							    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
+							    					<% tag_note = @notes.find_by_id(tag.note_id) %>
+							    					<% if tag_note != nil %>
+								    					<div class="panel panel-default">
+												    		<div class = "panel-heading"><%= tag_note.title%></div>
+												    		<div class = "panel-body"><%= tag_note.text%></div>
+												    	</div>
+												    <% end %>
+										   		<% end %>
+										  	<% end %>
+							    		</div>
 							    	</div>
-							    <% end %>
-					   		<% end %>
-					  	<% end %>
-		    		</div>
-		    	</div>
-		    </tr>
-	  	<% end %>
+							    </tr>
+						  	<% end %>
+						</div>
+					</div>
+		  	</div>
 
 		</div>
 	</div>
