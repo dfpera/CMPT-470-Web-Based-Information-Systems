@@ -8,8 +8,8 @@
 
 	  		<div class="leftNav">
   				<div class="navButtons">
-			  		<%= link_to new_account_note_path, type:"button", class: "btn btn-default leftNavButtons" do %>
-			  		<span class="glyphicon glyphicon-plus" style="color:white"></span>
+  				 	<%= link_to new_account_note_path, remote: true, class: "btn btn-primary" do%>
+			  			<span class="glyphicon glyphicon-plus" style="color:white"></span>
 			  		<% end %>
 		  		</div>
 		  		<div class="line"></div>
@@ -42,6 +42,8 @@
 			    	</div>
 			    </tr>
 			  	<% end %>
+
+			  	<%= render 'dialog' %>
 		  	</div>
 			
 		  	<div class="leftTag">
@@ -70,7 +72,11 @@
 
 					  <div class="navbar-collapse collapse" id="NavBar">
 							<ul class="nav navbar-nav navbar-left">
-								<li class="hidden-md hidden-lg"><a href="#" data-toggle="modal" data-target="#new_note"><span class="glyphicon glyphicon-plus"></span> </a></li>
+								<li class="hidden-md hidden-lg">
+									<%= link_to new_account_note_path, remote: true, class: "btn btn-primary" do%>
+			  						<span class="glyphicon glyphicon-plus" style="color:white"></span>
+			  					<% end %>
+			  				</li>
 								<li><a href="#" data-toggle="modal" data-target="#new_group"><span class="glyphicon glyphicon-list-alt"></span> </a></li>
 						  </ul>
 
@@ -169,39 +175,7 @@
 		</div>
 	</div>
 </div>
-<!-- Add Notes Modal -->
-<!--
-User will enter
-title
-note_contents
-tags
-//-->
-<div id="new_note" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-    	<!-- Modal content-->
-	    <div class="modal-content">
-			<div class="modal-body">
-		      	<form class="form-hotizontal">
-					<div class="form-group">
-						<code>NOTE : THIS DOES NOT WORK YET</code>
-						<%= link_to 'go here instead', new_account_note_path %>
-						<input type="title" class="form-control" id="title" placeholder="Title">
-					</div>
-					<div class="form-group">
-						<textarea type="text" class="form-control" rows="4" id="text" placeholder="Record your note..."></textarea>
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" id="tags" placeholder="Tags">
-					</div>
-					<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-default pull-right" data-dismiss="modal">Note.</button>
-					<div class="clearfix"></div>
-				</form>
-			</div>
-	    </div>
 
-	</div>
-</div>
 
 <!-- Add Group Modal -->
 <!--
