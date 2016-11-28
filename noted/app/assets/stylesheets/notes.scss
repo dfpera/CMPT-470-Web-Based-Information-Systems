@@ -57,9 +57,38 @@ $pad: 10px;
 	color: white;
 }
 
+
+.notesBox .note-buttons {
+    display: none;
+}
+
+.notesBox:hover .note-buttons{
+	display: inline;
+}
+
 .noteDate{
 	font-size: 10px;
 	text-align: right;
+}
+
+.notesBox{
+	border-style: none;
+	margin-bottom: $pad;
+	padding-left: 0px;
+	padding-right: 0px;
+
+}
+
+.groupNotesBox > .panel-heading{
+
+}
+
+.groupNotesBox .note-buttons {
+  display: none;
+}
+
+.groupNotesBox:hover .note-buttons{
+	display: inline;
 }
 
 
@@ -110,7 +139,7 @@ $pad: 10px;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: white;
+  color: white;
 }
 
 .mobileTabs{
@@ -124,11 +153,11 @@ $pad: 10px;
   height:-webkit-calc(100% - 50px);
 }
 
-.nav>.nav-tabs>li>a {
-    background-color: #3e6482;
-    color: white;
+.tab-width{
+  background-color: #3e6482;
+	width: 50%;
 }
 
-.tab-width{
-	width: 50%;
+.panel-heading .btn-primary{
+		background-color: transparent;
 }

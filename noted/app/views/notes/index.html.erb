@@ -22,13 +22,15 @@
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
 			    		<div class = "panel-heading">
-				    				<%= note.title %> 
+			    				<%= note.title %> 
+			    				<div class = "note-buttons">
 				    				<%= link_to account_note_path(note.account_id, note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
 				 							<span class="glyphicon glyphicon-remove" style="color:white"></span>
 				 						<% end %>
 				 						<%= link_to edit_account_note_path(note.account_id, note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
 				 							<span class="glyphicon glyphicon-edit" style="color:white"></span>
 				 						<% end %>
+				 					</div>
 				    		<div class="row ">
 				    			<div class= "col-xs-12 noteDate">
 				    				<%= note.updated_at %> 
@@ -39,8 +41,6 @@
 			    	</div>
 			    </tr>
 			  	<% end %>
-
-			  	<%= render 'dialog' %>
 		  	</div>
 			
 		  	<div class="leftTag">
@@ -102,8 +102,18 @@
 				    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
 				    					<% tag_note = @notes.find_by_id(tag.note_id) %>
 				    					<% if tag_note != nil %>
-					    					<div class="panel panel-default">
-									    		<div class = "panel-heading"><%= tag_note.title%></div>
+					    					<div class="panel panel-default groupNotesBox">
+									    		<div class = "panel-heading">
+									    			<%= tag_note.title%>
+														<div class = "note-buttons">
+									    				<%= link_to account_note_path(tag_note.account_id, tag_note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+									 							<span class="glyphicon glyphicon-remove" style="color:black"></span>
+									 						<% end %>
+									 						<%= link_to edit_account_note_path(tag_note.account_id, tag_note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
+									 							<span class="glyphicon glyphicon-edit" style="color:black"></span>
+									 						<% end %>
+									 					</div>
+									    		</div>
 									    		<div class = "panel-body"><%= tag_note.text%></div>
 									    	</div>
 									    <% end %>
@@ -156,8 +166,18 @@
 							    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
 							    					<% tag_note = @notes.find_by_id(tag.note_id) %>
 							    					<% if tag_note != nil %>
-								    					<div class="panel panel-default">
-												    		<div class = "panel-heading"><%= tag_note.title%></div>
+								    					<div class="panel panel-default groupNotesBox">
+												    		<div class = "panel-heading">
+												    			<%= tag_note.title%>
+														    	<div class = "note-buttons">
+												    				<%= link_to account_note_path(tag_note.account_id, tag_note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+												 							<span class="glyphicon glyphicon-remove" style="color:black;"></span>
+												 						<% end %>
+												 						<%= link_to edit_account_note_path(tag_note.account_id, tag_note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
+												 							<span class="glyphicon glyphicon-edit" style="color:black"></span>
+												 						<% end %>
+											 						</div>
+												    		</div>
 												    		<div class = "panel-body"><%= tag_note.text%></div>
 												    	</div>
 												    <% end %>
@@ -171,6 +191,7 @@
 					</div>
 
 		  	</div>
+		  				  	<%= render 'dialog' %>
 
 		</div>
 	</div>
