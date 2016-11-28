@@ -51,7 +51,7 @@ class NotesController < ApplicationController
 		if @tag.save
 			redirect_to account_notes_path(@account)
 		else
-			renter 'newtag'
+			render 'newtag'
 		end
 	end
 
