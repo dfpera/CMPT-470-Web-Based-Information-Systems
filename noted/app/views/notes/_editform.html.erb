@@ -1,4 +1,4 @@
-<%= form_for [@account,@note], remote: true, :html => { :role => "noteform" } do |f| %>
+<%= form_for :note, url: account_note_path(@note.account_id, @note.id),remote: true, :html => { :role => "editform" }, method: :patch do |f| %>
   <div class="form-group">
           <%= f.label :title %><br>
           <%= f.text_field :title, class: "form-control" %>
@@ -8,10 +8,10 @@
           <%= f.label :text %><br>
           <%= f.text_area :text, class: "form-control" %>
         </div>
-        <div class="form-group" id="tags-form">
-          <input type="text" class="form-control" id="tags" placeholder="Tags (Press Enter after each tag)">
-        </div>
         <ul class="list-inline" id="tag-list">
+          <% @tags.each do |tag| %>
+            <li><h4><span class="label label-primary"><%= tag.tag_name %> </span></h4></li>
+          <% end %>
         </ul>
 
   <%= f.submit "Submit", class: "btn btn-default pull-left" %>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="row row-no-pad">
+	<div class="row">
 		<!--Left bar-->
 
 		<!--Notes taken will appear here if not already in a group-->
@@ -8,7 +8,7 @@
 
 	  		<div class="leftNav">
   				<div class="navButtons">
-  				 	<%= link_to new_account_note_path, remote: true, class: "btn btn-primary" do%>
+  				 	<%= link_to new_account_note_path(:noteform => 'true'), remote: true, class: "btn btn-primary" do%>
 			  			<span class="glyphicon glyphicon-plus" style="color:white"></span>
 			  		<% end %>
 		  		</div>
@@ -22,17 +22,14 @@
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
 			    		<div class = "panel-heading">
-				    		<div class="row row-no-pad">
-				    			<div class= "col-xs-11 noteTitle">
 				    				<%= note.title %> 
-				    			</div>
-				    			<div clas= "col-xs-1 deleteNote">
-				    				<!--Delete Buton for note-->
-				    				<span class="glyphicon glyphicon-remove" style="color:white"></span>
-				    			</div>
-				    		</div>
-
-				    		<div class="row row-no-pad">
+				    				<%= link_to account_note_path(note.account_id, note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+				 							<span class="glyphicon glyphicon-remove" style="color:white"></span>
+				 						<% end %>
+				 						<%= link_to edit_account_note_path(note.account_id, note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
+				 							<span class="glyphicon glyphicon-edit" style="color:white"></span>
+				 						<% end %>
+				    		<div class="row ">
 				    			<div class= "col-xs-12 noteDate">
 				    				<%= note.updated_at %> 
 				    			</div>
@@ -73,11 +70,15 @@
 					  <div class="navbar-collapse collapse" id="NavBar">
 							<ul class="nav navbar-nav navbar-left">
 								<li class="hidden-md hidden-lg">
-									<%= link_to new_account_note_path, remote: true, class: "btn btn-primary" do%>
+									<%= link_to new_account_note_path(:noteform => 'true'), remote: true, class: "btn-sm btn-primary" do%>
 			  						<span class="glyphicon glyphicon-plus" style="color:white"></span>
 			  					<% end %>
 			  				</li>
-								<li><a href="#" data-toggle="modal" data-target="#new_group"><span class="glyphicon glyphicon-list-alt"></span> </a></li>
+								<li>  				 	
+									<%= link_to account_new_tag_path(:noteform => 'false'), remote: true, class: "btn-sm btn-primary" do%>
+			  						<span class="glyphicon glyphicon-tag" style="color:white"></span>
+			  					<% end %>
+			  				</li>
 						  </ul>
 
 						  <ul class="nav navbar-nav navbar-right">
@@ -116,8 +117,8 @@
 
 		  	<div class = "mobileTabs visible-sm visible-xs">
 		  		<ul class="nav nav-tabs">
-				    <li class="active"><a data-toggle="tab" href="#notes">Notes</a></li>
-				    <li><a data-toggle="tab" href="#groups">Groups</a></li>
+				    <li class="active tab-width"><a data-toggle="tab" href="#notes">Notes</a></li>
+				    <li class="tab-width"><a data-toggle="tab" href="#groups">Groups</a></li>
 				  </ul>
 
 					<div class="tab-content">
@@ -126,17 +127,15 @@
 						    <tr>
 						    	<div class="panel panel-default container-fluid notesBox">
 						    		<div class = "panel-heading">
-							    		<div class="row row-no-pad">
-							    			<div class= "col-xs-11 noteTitle">
-							    				<%= note.title %> 
-							    			</div>
-							    			<div clas= "col-xs-1 deleteNote">
-							    				<!--Delete Buton for note-->
-							    				<span class="glyphicon glyphicon-remove" style="color:white"></span>
-							    			</div>
-							    		</div>
+							    			<%= note.title %> 
+				    				<%= link_to account_note_path(note.account_id, note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+				 							<span class="glyphicon glyphicon-remove" style="color:white"></span>
+				 						<% end %>
+				 						<%= link_to edit_account_note_path(note.account_id, note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
+				 							<span class="glyphicon glyphicon-edit" style="color:white"></span>
+				 						<% end %>
 
-							    		<div class="row row-no-pad">
+							    		<div class="row">
 							    			<div class= "col-xs-12 noteDate">
 							    				<%= note.updated_at %> 
 							    			</div>
@@ -170,34 +169,10 @@
 						  	<% end %>
 						</div>
 					</div>
+
 		  	</div>
 
 		</div>
 	</div>
 </div>
 
-
-<!-- Add Group Modal -->
-<!--
-User will enter
-group
-//-->
-<div id="new_group" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-    	<!-- Modal content-->
-	    <div class="modal-content">
-			<div class="modal-body">
-		      	<form class="form-hotizontal">
-					<div class="form-group">
-						<label for="group"><code>New Group : NOTE : THIS DOES NOT WORK YET (tags can be created during note creation)</code></label>
-						<input type="text" class="form-control" id="group" placeholder="Group Name">
-					</div>
-					<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-default pull-right" data-dismiss="modal">Add</button>
-					<div class="clearfix"></div>
-				</form>
-			</div>
-	    </div>
-
-	</div>
-</div>

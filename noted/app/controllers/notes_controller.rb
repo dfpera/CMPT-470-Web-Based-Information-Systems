@@ -17,11 +17,17 @@ class NotesController < ApplicationController
 		@note.account_id = params[:account_id]
 
 		if @note.save
-			
-			@tag = Tag.new(tag_params)
-			@tag.account_id = params[:account_id]
-			@tag.note_id = @note.id
-			@tag.save
+
+			tags = params[:tags]
+			if tags
+				tags.each do |tag|
+					@tag = Tag.new()
+					@tag.tag_name = tag
+					@tag.account_id = params[:account_id]
+					@tag.note_id = @note.id
+					@tag.save
+				end
+			end
 
 			redirect_to account_notes_path(@account)
 		else
@@ -30,8 +36,28 @@ class NotesController < ApplicationController
 	end
 
 	def new
+		@noteform = params[:noteform]
 		@account = Account.find(params[:account_id])
 		@note = Note.new
+		@tag = Tag.new
+	end
+
+	def createnewtag
+		@account = Account.find(params[:account_id])
+		@tag = Tag.new(tag_params)
+		@tag.account_id = params[:account_id]
+		@tag.note_id = nil
+
+		if @tag.save
+			redirect_to account_notes_path(@account)
+		else
+			renter 'newtag'
+		end
+	end
+
+	def newtag
+		@noteform = params[:noteform]
+		@account = Account.find(params[:account_id])
 		@tag = Tag.new
 	end
 
@@ -39,6 +65,30 @@ class NotesController < ApplicationController
 		@notes = Note.all
 	end
 
+	def edit
+		@note = Note.find(params[:id])
+		@account = Account.find(params[:account_id])
+		@tags = Tag.where(:note_id => params[:id])
+	end
+
+	def update
+		@account = Account.find(params[:account_id])
+		@note = Note.find(params[:id])
+
+		if @note.update(note_params)
+			redirect_to account_notes_path(@account)
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@note = Note.find(params[:id])		
+		@note.destroy
+	
+		redirect_to account_notes_path
+	end
+	
 	private 
 		def note_params
 			params.require(:note).permit(:title,:text,:account_id)

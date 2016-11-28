@@ -1,9 +1,7 @@
-<%= form_for [@account,@note], remote: true, :html => { :role => "tagform" } do |f| %>
+<%= form_for [@account, @tag], remote: true, :html => { :role => "tagform" } do |f| %>
   <div class="form-group">
-    <%= fields_for :tag do |u| %>
-      <%= u.label :tag %><br/>
-      <%= u.text_field :tag_name, class: "form-control" %>
-    <% end %>
+    <%= f.label :tag %><br>
+    <%= f.text_field :tag_name, class: "form-control" %>
   </div>
   <%= f.submit "Submit", class: "btn btn-default pull-left" %>
 <% end %>
