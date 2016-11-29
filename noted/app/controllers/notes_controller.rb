@@ -5,16 +5,16 @@ class NotesController < ApplicationController
 	def index
 		#Get all notes where notes.account_id == account_id
 		#account_id is retrieved from the url
-		@notes = Note.where(:account_id => params[:account_id])
-		@tags = Tag.where(:account_id => params[:account_id])
+		@notes = Note.where(:account_id => session[:account_id])
+		@tags = Tag.where(:account_id => session[:account_id])
 		@tagNames = @tags.select('DISTINCT tag_name')
 	end
 
 	def create
-		@account = Account.find(params[:account_id])
+		@account = Account.find(session[:account_id])
 		@note = Note.new(note_params)
 
-		@note.account_id = params[:account_id]
+		@note.account_id = session[:account_id]
 
 		if @note.save
 
@@ -23,13 +23,13 @@ class NotesController < ApplicationController
 				tags.each do |tag|
 					@tag = Tag.new()
 					@tag.tag_name = tag
-					@tag.account_id = params[:account_id]
+					@tag.account_id = session[:account_id]
 					@tag.note_id = @note.id
 					@tag.save
 				end
 			end
 
-			redirect_to account_notes_path(@account)
+			redirect_to notes_path
 		else
 			render 'new'
 		end
@@ -37,19 +37,18 @@ class NotesController < ApplicationController
 
 	def new
 		@noteform = params[:noteform]
-		@account = Account.find(params[:account_id])
+		@account = Account.find(session[:account_id])
 		@note = Note.new
 		@tag = Tag.new
 	end
 
-	def createnewtag
-		@account = Account.find(params[:account_id])
+	def createtag
 		@tag = Tag.new(tag_params)
-		@tag.account_id = params[:account_id]
+		@tag.account_id = session[:account_id]
 		@tag.note_id = nil
 
 		if @tag.save
-			redirect_to account_notes_path(@account)
+			redirect_to notes_path
 		else
 			render 'newtag'
 		end
@@ -57,7 +56,6 @@ class NotesController < ApplicationController
 
 	def newtag
 		@noteform = params[:noteform]
-		@account = Account.find(params[:account_id])
 		@tag = Tag.new
 	end
 
@@ -67,16 +65,16 @@ class NotesController < ApplicationController
 
 	def edit
 		@note = Note.find(params[:id])
-		@account = Account.find(params[:account_id])
+		@account = Account.find(session[:account_id])
 		@tags = Tag.where(:note_id => params[:id])
 	end
 
 	def update
-		@account = Account.find(params[:account_id])
+		@account = Account.find(session[:account_id])
 		@note = Note.find(params[:id])
 
 		if @note.update(note_params)
-			redirect_to account_notes_path(@account)
+			redirect_to notes_path
 		else
 			render 'edit'
 		end
@@ -86,7 +84,7 @@ class NotesController < ApplicationController
 		@note = Note.find(params[:id])
 		@note.destroy
 
-		redirect_to account_notes_path
+		redirect_to notes_path
 	end
 
 	private

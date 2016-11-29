@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   end
   resources :notes do
     collection do
-      post :tags
-      get :tags
+      post :tag, :action => 'createtag'
+      get :tag, :action => 'newtag'
     end
   end
 end

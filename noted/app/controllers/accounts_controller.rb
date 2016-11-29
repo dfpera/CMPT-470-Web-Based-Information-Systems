@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-	before_action :already_logged_in
+	before_action :already_logged_in, :except => [:logout]
 
 	def index
 	end
@@ -11,18 +11,20 @@ class AccountsController < ApplicationController
 	def create
 		@account = Account.new(account_params)
 		if @account.save
-			session[:user_id] = @account.id
-			redirect_to account_notes_path(@account)
+			session[:account_id] = @account.id
+			redirect_to notes_path
 		else
-			render 'new'
+			flash.now[:notice] = "Failed to create new account."
+			render('new')
 		end
 	end
 
 	def login
-		if params[:username].present? && params[:password].present?
-			found_user = Account.where(:username => params[:username]).first
+		if params[:session][:username].present? && params[:session][:password].present?
+
+			found_user = Account.where(:username => params[:session][:username]).first
 			if found_user
-				authorized_user = found_user.authenticate(params[:password])
+				authorized_user = found_user.authenticate(params[:session][:password])
 			end
 		end
 
