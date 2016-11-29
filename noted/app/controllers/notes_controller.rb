@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 
-	before_filter :authenticate
+	before_action :confirm_logged_in
 
 	def index
 		#Get all notes where notes.account_id == account_id
@@ -83,13 +83,13 @@ class NotesController < ApplicationController
 	end
 
 	def destroy
-		@note = Note.find(params[:id])		
+		@note = Note.find(params[:id])
 		@note.destroy
-	
+
 		redirect_to account_notes_path
 	end
-	
-	private 
+
+	private
 		def note_params
 			params.require(:note).permit(:title,:text,:account_id)
 		end
