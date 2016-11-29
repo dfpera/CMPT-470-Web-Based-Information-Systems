@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  SESSION_LENGTH = 1.minute
+
   private
   def confirm_logged_in
     if !session[:account_id] && !session[:expires_at]
@@ -17,6 +19,12 @@ class ApplicationController < ActionController::Base
     if session[:account_id] && (session[:expires_at] > Time.now)
       flash[:notice] = "Welcome to Noted."
       redirect_to(notes_path)
+    end
+  end
+
+  def extend_session
+    if session[:expires_at] > Time.now
+      session[:expires_at] = Time.now + SESSION_LENGTH
     end
   end
 end

@@ -1,11 +1,12 @@
 class NotesController < ApplicationController
 
 	before_action :confirm_logged_in, :except => [:new, :newtag, :edit]
+	after_action :extend_session
 
 	def index
 		#Get all notes where notes.account_id == account_id
 		#account_id is retrieved from the url
-		@notes = Note.where(:account_id => session[:account_id])
+		@notes = Note.where(:account_id => session[:account_id]).order("updated_at DESC")
 		@tags = Tag.where(:account_id => session[:account_id])
 		@tagNames = @tags.select('DISTINCT tag_name')
 	end

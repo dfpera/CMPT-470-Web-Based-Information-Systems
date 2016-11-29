@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
 		@account = Account.new(account_params)
 		if @account.save
 			session[:account_id] = @account.id
-			session[:expires_at] = Time.now + 1.minute
+			session[:expires_at] = Time.now + SESSION_LENGTH
 			redirect_to(notes_path)
 		else
 			flash.now[:notice] = "Failed to create new account."
@@ -31,7 +31,7 @@ class AccountsController < ApplicationController
 
 		if authorized_user
 			session[:account_id] = authorized_user.id
-			session[:expires_at] = Time.now + 1.minute
+			session[:expires_at] = Time.now + SESSION_LENGTH
 			flash[:notice] = "Welcome to Noted!"
 			redirect_to(notes_path)
 		else
