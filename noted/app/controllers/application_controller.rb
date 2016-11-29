@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  SESSION_LENGTH = 1.minute
+  SESSION_LENGTH = 5.minutes
 
   private
   def confirm_logged_in
