@@ -12,9 +12,10 @@ class AccountsController < ApplicationController
 		@account = Account.new(account_params)
 		if @account.save
 			session[:user_id] = @account.id
-			redirect_to account_notes_path(@account)
+			redirect_to(notes_path)
 		else
-			render 'new'
+			flash.now[:notice] = "Failed to create new account."
+			render('new')
 		end
 	end
 
