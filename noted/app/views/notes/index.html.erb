@@ -1,3 +1,5 @@
+<% @page_title = "Dashboard - Noted" %>
+
 <div class="container-fluid">
 	<div class="row">
 		<!--Left bar-->
@@ -22,7 +24,7 @@
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
 			    		<div class = "panel-heading">
-			    				<%= note.title %> 
+			    				<%= note.title %>
 			    				<div class = "note-buttons">
 				    				<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
 				 							<span class="glyphicon glyphicon-remove" style="color:white"></span>
@@ -33,7 +35,7 @@
 				 					</div>
 				    		<div class="row ">
 				    			<div class= "col-xs-12 noteDate">
-				    				<%= note.updated_at %> 
+				    				<%= note.updated_at %>
 				    			</div>
 				    		</div>
 			    		</div>
@@ -42,7 +44,7 @@
 			    </tr>
 			  	<% end %>
 		  	</div>
-			
+
 		  	<div class="leftTag">
 			  	<div class="panel panel-default tagBox">
 			  	<div class = "panel-body"></div>
@@ -63,7 +65,7 @@
 								<span class="icon-bar"></span>
 					      <span class="icon-bar"></span>
 					      <span class="icon-bar"></span>
-						  </button>    
+						  </button>
 							<a class="navbar-brand" href="">Noted</a>
 					  </div>
 
@@ -74,7 +76,7 @@
 			  						<span class="glyphicon glyphicon-plus" style="color:white"></span>
 			  					<% end %>
 			  				</li>
-								<li>  				 	
+								<li>
 									<%= link_to tag_notes_path(:noteform => 'false'), remote: true, class: "btn-sm btn-primary" do%>
 			  						<span class="glyphicon glyphicon-tag" style="color:white"></span>
 			  					<% end %>
@@ -137,7 +139,7 @@
 						    <tr>
 						    	<div class="panel panel-default container-fluid notesBox">
 						    		<div class = "panel-heading">
-							    			<%= note.title %> 
+							    			<%= note.title %>
 				    				<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
 				 							<span class="glyphicon glyphicon-remove" style="color:white"></span>
 				 						<% end %>
@@ -147,7 +149,7 @@
 
 							    		<div class="row">
 							    			<div class= "col-xs-12 noteDate">
-							    				<%= note.updated_at %> 
+							    				<%= note.updated_at %>
 							    			</div>
 							    		</div>
 						    		</div>
@@ -191,10 +193,9 @@
 					</div>
 
 		  	</div>
-		  	
+
 		  	<%= render 'dialog' %>
 
 		</div>
 	</div>
 </div>
-
