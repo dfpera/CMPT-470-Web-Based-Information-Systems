@@ -3,14 +3,18 @@ class ApplicationController < ActionController::Base
 
   private
   def confirm_logged_in
-    unless session[:account_id]
+    if !session[:account_id] && !session[:expires_at]
       flash[:notice] = "Please log in."
+      redirect_to(accounts_path)
+    end
+    if session[:expires_at] < Time.now
+      flash[:notice] = "Please log in. Your session has expired."
       redirect_to(accounts_path)
     end
   end
 
   def already_logged_in
-    if session[:account_id]
+    if session[:account_id] && (session[:expires_at] > Time.now)
       flash[:notice] = "Welcome to Noted."
       redirect_to(notes_path)
     end

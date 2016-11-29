@@ -12,7 +12,8 @@ class AccountsController < ApplicationController
 		@account = Account.new(account_params)
 		if @account.save
 			session[:account_id] = @account.id
-			redirect_to notes_path
+			session[:expires_at] = Time.now + 1.minute
+			redirect_to(notes_path)
 		else
 			flash.now[:notice] = "Failed to create new account."
 			render('new')
@@ -20,26 +21,28 @@ class AccountsController < ApplicationController
 	end
 
 	def login
-		if params[:session][:username].present? && params[:session][:password].present?
+		if params[:username].present? && params[:password].present?
 
-			found_user = Account.where(:username => params[:session][:username]).first
+			found_user = Account.where(:username => params[:username]).first
 			if found_user
-				authorized_user = found_user.authenticate(params[:session][:password])
+				authorized_user = found_user.authenticate(params[:password])
 			end
 		end
 
 		if authorized_user
 			session[:account_id] = authorized_user.id
+			session[:expires_at] = Time.now + 1.minute
 			flash[:notice] = "Welcome to Noted!"
 			redirect_to(notes_path)
 		else
-			flash.now[:notice] = "Invalid username/password combination."
-			render('index')
+			flash[:notice] = "Invalid username/password combination."
+			redirect_to(accounts_path)
 		end
 	end
 
 	def logout
 		session[:account_id] = nil
+		session[:expires_at] = Time.now
 		flash[:notice] = "Successfully logged out."
 		redirect_to(accounts_path)
 	end

@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 
-	before_action :confirm_logged_in
+	before_action :confirm_logged_in, :except => [:new, :newtag, :edit]
 
 	def index
 		#Get all notes where notes.account_id == account_id
