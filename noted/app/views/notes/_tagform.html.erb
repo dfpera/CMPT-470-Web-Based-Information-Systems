@@ -1,4 +1,4 @@
-<%= form_for [@account, @tag], remote: true, :html => { :role => "tagform" } do |f| %>
+<%= form_for @tag, url:tag_notes_path, remote: true, :html => { :role => "tagform" } do |f| %>
   <div class="form-group">
     <%= f.label :tag %><br>
     <%= f.text_field :tag_name, class: "form-control" %>

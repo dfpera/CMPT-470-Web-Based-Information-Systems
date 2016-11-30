@@ -1,4 +1,4 @@
-<%= form_for :note, url: account_note_path(@note.account_id, @note.id),remote: true, :html => { :role => "editform" }, method: :patch do |f| %>
+<%= form_for :note, url: note_path(@note.id),remote: true, :html => { :role => "editform" }, method: :patch do |f| %>
   <div class="form-group">
           <%= f.label :title %><br>
           <%= f.text_field :title, class: "form-control" %>
