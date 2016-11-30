@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
 			session[:expires_at] = Time.now + SESSION_LENGTH
 			redirect_to(notes_path)
 		else
-			flash.now[:notice] = "Failed to create new account."
+			flash.now[:notice] = "Cannot create new account due to the following errors:"
 			render('new')
 		end
 	end
@@ -49,6 +49,6 @@ class AccountsController < ApplicationController
 
 	private
 	def account_params
-		params.require(:account).permit(:username, :password)
+		params.require(:account).permit(:username, :password, :password_confirmation)
 	end
 end
