@@ -96,20 +96,4 @@ class NotesController < ApplicationController
 		def tag_params
 			params.require(:tag).permit(:tag_name)
 		end
-
-		def authenticate
-			if Account.find_by(id: params[:account_id])
-				if Account.find(params[:account_id]).id == session[:user_id]
-					return true
-				else
-					flash[:error] = "You are not signed in to that account"
-					redirect_to login_path
-					return false
-				end
-			else
-				flash[:error] = "User does not exist"
-				redirect_to login_path
-				return false
-			end
-		end
 end
