@@ -13,11 +13,6 @@
   				 	<%= link_to new_note_path(:noteform => 'true'), remote: true, class: "btn btn-primary" do%>
 			  			<span class="glyphicon glyphicon-plus" style="color:white"></span>
 			  		<% end %>
-						<!-- <p>Sort By:</p> -->
-						<%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %>
-						<%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %>
-						<%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %>
-						<%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %>
 		  		</div>
 		  		<div class="line"></div>
 	  		</div>
@@ -25,6 +20,11 @@
 
 
 		  	<div class="notes">
+					<p>Sort By:
+					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %>
+					<%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %>
+					<%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %>
+					<%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></p>
 					<% @notes.each do |note| %>
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
@@ -100,11 +100,11 @@
 				<!--Groups Area-->
 				<!--Notes taken will appear here if in a group-->
 				<div class="groupsArea visible-lg visible-md">
-					<!-- <p>Sort By:</p> -->
+					<p>Sort By:
 					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[0]}) %>
 					<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %>
 					<%= link_to("Created", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[2]}) %>
-					<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %>
+					<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></p>
 					<% @tagNames.each do |tagName| %>
 				    <tr>
 				    	<div class="panel panel-default">
