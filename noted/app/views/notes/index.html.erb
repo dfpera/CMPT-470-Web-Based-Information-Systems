@@ -24,7 +24,7 @@
 					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %>
 					<%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %>
 					<%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %>
-					<%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></p>
+					<!-- <%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></p> -->
 					<% @notes.each do |note| %>
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
