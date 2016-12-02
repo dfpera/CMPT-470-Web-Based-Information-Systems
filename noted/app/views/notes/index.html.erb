@@ -40,7 +40,7 @@
 				 					</div>
 				    		<div class="row ">
 				    			<div class= "col-xs-12 noteDate">
-				    				<%= note.updated_at %>
+				    				Updated: <%= note.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b %d, %Y, %I:%M %p") %>
 				    			</div>
 				    		</div>
 			    		</div>
@@ -100,11 +100,11 @@
 				<!--Groups Area-->
 				<!--Notes taken will appear here if in a group-->
 				<div class="groupsArea visible-lg visible-md">
-					<p>Sort By:
+					<!-- <p>Sort By:
 					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[0]}) %>
 					<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %>
 					<%= link_to("Created", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[2]}) %>
-					<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></p>
+					<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></p> -->
 					<% @tagNames.each do |tagName| %>
 				    <tr>
 				    	<div class="panel panel-default">

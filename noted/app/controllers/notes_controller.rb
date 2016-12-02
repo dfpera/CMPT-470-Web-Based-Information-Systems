@@ -7,12 +7,12 @@ class NotesController < ApplicationController
 		# Get all notes where notes.account_id == account_id
 		# account_id is retrieved from the url
 		@notes = Note.where(:account_id => session[:account_id]) # .order("updated_at DESC")
-		@tags = Tag.where(:account_id => session[:account_id])
+		@tags = Tag.where(:account_id => session[:account_id])# .select(:tag_name, :pinned, :updated_at, :created_at)
 		# Sort both notes and tags for display order
 		@sortNotesLinks = []
 		@sortTagsLinks = []
 		sort_order
-		@tagNames = @tags.select('DISTINCT tag_name', 'updated_at', 'created_at', 'pinned')
+		@tagNames = @tags.select('DISTINCT tag_name')
 	end
 
 	def create
@@ -133,32 +133,32 @@ class NotesController < ApplicationController
 			end
 
 			# Sorting Tags
-			sortsTags = ["alphabetical", "updated", "created", "pinned"]
-			@sortTagsLinks = sortsTags
-			case params[:sortTags]
-			when sortsTags[0] # Alphabetical
-				@sortTagsLinks[0] += reverse
-				@tags = @tags.order(tag_name: :asc)
-			when sortsTags[0] + reverse # AlphabeticalReverse
-				@tags = @tags.order(tag_name: :desc)
-			when sortsTags[1] # Updated
-				@sortTagsLinks[1] += reverse
-				@tags = @tags.order(updated_at: :desc)
-			when sortsTags[1] + reverse # UpdatedReverse
-				@tags = @tags.order(updated_at: :asc)
-			when sortsTags[2] # Created
-				@sortTagsLinks[2] += reverse
-				@tags = @tags.order(created_at: :desc)
-			when sortsTags[2] + reverse # CreatedReverse
-				@tags = @tags.order(created_at: :asc)
-			when sortsTags[3] # Pinned
-				@sortTagsLinks[3] += reverse
-				@tags = @tags.order(pinned: :asc)
-			when sortsTags[3] + reverse # PinnedReverse
-				@tags = @tags.order(pinned: :desc)
-			else # Default (sort by pinned)
-				@sortTagsLinks[3] += reverse
-				@tags = @tags.order(pinned: :asc)
-			end
+			# sortsTags = ["alphabetical", "updated", "created", "pinned"]
+			# @sortTagsLinks = sortsTags
+			# case params[:sortTags]
+			# when sortsTags[0] # Alphabetical
+			# 	@sortTagsLinks[0] += reverse
+			# 	@tags = @tags.order(tag_name: :asc)
+			# when sortsTags[0] + reverse # AlphabeticalReverse
+			# 	@tags = @tags.order(tag_name: :desc)
+			# when sortsTags[1] # Updated
+			# 	@sortTagsLinks[1] += reverse
+			# 	@tags = @tags.order(updated_at: :desc)
+			# when sortsTags[1] + reverse # UpdatedReverse
+			# 	@tags = @tags.order(updated_at: :asc)
+			# when sortsTags[2] # Created
+			# 	@sortTagsLinks[2] += reverse
+			# 	@tags = @tags.order(created_at: :desc)
+			# when sortsTags[2] + reverse # CreatedReverse
+			# 	@tags = @tags.order(created_at: :asc)
+			# when sortsTags[3] # Pinned
+			# 	@sortTagsLinks[3] += reverse
+			# 	@tags = @tags.order(pinned: :asc)
+			# when sortsTags[3] + reverse # PinnedReverse
+			# 	@tags = @tags.order(pinned: :desc)
+			# else # Default (sort by pinned)
+			# 	@sortTagsLinks[3] += reverse
+			# 	@tags = @tags.order(pinned: :asc)
+			# end
 		end
 end
