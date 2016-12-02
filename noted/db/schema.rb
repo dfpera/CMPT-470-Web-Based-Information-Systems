@@ -20,18 +20,20 @@ ActiveRecord::Schema.define(version: 20161115233214) do
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "account_id"
+    t.string   "permalink"
     t.string   "title"
     t.text     "text",       limit: 65535
-    t.integer  "account_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["account_id"], name: "index_notes_on_account_id", using: :btree
+    t.index ["permalink"], name: "index_notes_on_permalink", using: :btree
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "tag_name"
     t.integer  "account_id"
     t.integer  "note_id"
+    t.string   "tag_name"
     t.boolean  "pinned"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,7 +41,4 @@ ActiveRecord::Schema.define(version: 20161115233214) do
     t.index ["note_id"], name: "index_tags_on_note_id", using: :btree
   end
 
-  add_foreign_key "notes", "accounts"
-  add_foreign_key "tags", "accounts"
-  add_foreign_key "tags", "notes"
 end

@@ -4,10 +4,14 @@ class NotesController < ApplicationController
 	after_action :extend_session
 
 	def index
-		#Get all notes where notes.account_id == account_id
-		#account_id is retrieved from the url
-		@notes = Note.where(:account_id => session[:account_id]).order("updated_at DESC")
-		@tags = Tag.where(:account_id => session[:account_id])
+		# Get all notes where notes.account_id == account_id
+		# account_id is retrieved from the url
+		@notes = Note.where(:account_id => session[:account_id]) # .order("updated_at DESC")
+		@tags = Tag.where(:account_id => session[:account_id])# .select(:tag_name, :pinned, :updated_at, :created_at)
+		# Sort both notes and tags for display order
+		@sortNotesLinks = []
+		@sortTagsLinks = []
+		sort_order
 		@tagNames = @tags.select('DISTINCT tag_name')
 	end
 
@@ -97,19 +101,64 @@ class NotesController < ApplicationController
 			params.require(:tag).permit(:tag_name)
 		end
 
-		def authenticate
-			if Account.find_by(id: params[:account_id])
-				if Account.find(params[:account_id]).id == session[:user_id]
-					return true
-				else
-					flash[:error] = "You are not signed in to that account"
-					redirect_to login_path
-					return false
-				end
-			else
-				flash[:error] = "User does not exist"
-				redirect_to login_path
-				return false
+		def sort_order
+			reverse = "Reversed"
+			# Sorting Notes
+			sortsNotes = ["alphabetical", "updated", "created", "tagged"]
+			@sortNotesLinks = sortsNotes
+			case params[:sortNotes]
+			when sortsNotes[0] # Alphabetical
+				@sortNotesLinks[0] += reverse
+				@notes = @notes.order(title: :asc)
+			when sortsNotes[0] + reverse # AlphabeticalReverse
+				@notes = @notes.order(title: :desc)
+			when sortsNotes[1] # Updated
+				@sortNotesLinks[1] += reverse
+				@notes = @notes.order(updated_at: :desc)
+			when sortsNotes[1] + reverse # UpdatedReverse
+				@notes = @notes.order(updated_at: :asc)
+			when sortsNotes[2] # Created
+				@sortNotesLinks[2] += reverse
+				@notes = @notes.order(created_at: :desc)
+			when sortsNotes[2] + reverse # CreatedReverse
+				@notes = @notes.order(created_at: :asc)
+			# when sortsNotes[3] # Tagged
+			# 	@sortNotesLinks[3] += reverse
+			# 	@notes = @notes.join(:tags)#.order(tag_name: :asc)
+			# when sortsNotes[3] + reverse # TaggedReverse
+				# @notes = @notes.order(tagged: :desc)
+			else # Default (sort by updated)
+				@sortNotesLinks[1] += reverse
+				@notes = @notes.order(updated_at: :desc)
 			end
+
+			# Sorting Tags
+			# sortsTags = ["alphabetical", "updated", "created", "pinned"]
+			# @sortTagsLinks = sortsTags
+			# case params[:sortTags]
+			# when sortsTags[0] # Alphabetical
+			# 	@sortTagsLinks[0] += reverse
+			# 	@tags = @tags.order(tag_name: :asc)
+			# when sortsTags[0] + reverse # AlphabeticalReverse
+			# 	@tags = @tags.order(tag_name: :desc)
+			# when sortsTags[1] # Updated
+			# 	@sortTagsLinks[1] += reverse
+			# 	@tags = @tags.order(updated_at: :desc)
+			# when sortsTags[1] + reverse # UpdatedReverse
+			# 	@tags = @tags.order(updated_at: :asc)
+			# when sortsTags[2] # Created
+			# 	@sortTagsLinks[2] += reverse
+			# 	@tags = @tags.order(created_at: :desc)
+			# when sortsTags[2] + reverse # CreatedReverse
+			# 	@tags = @tags.order(created_at: :asc)
+			# when sortsTags[3] # Pinned
+			# 	@sortTagsLinks[3] += reverse
+			# 	@tags = @tags.order(pinned: :asc)
+			# when sortsTags[3] + reverse # PinnedReverse
+			# 	@tags = @tags.order(pinned: :desc)
+			# else # Default (sort by pinned)
+			# 	@sortTagsLinks[3] += reverse
+			# 	@tags = @tags.order(pinned: :asc)
+			# end
 		end
 end

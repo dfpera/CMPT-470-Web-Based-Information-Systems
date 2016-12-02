@@ -8,7 +8,7 @@
 		<span class = "visible-lg visible-md">
 	  	<div class="col-lg-3 col-md-4 leftbar">
 
-	  		<div class="leftNav">
+	  		<div class="leftNav ">
   				<div class="navButtons">
   				 	<%= link_to new_note_path(:noteform => 'true'), remote: true, class: "btn btn-primary" do%>
 			  			<span class="glyphicon glyphicon-plus" style="color:white"></span>
@@ -20,6 +20,11 @@
 
 
 		  	<div class="notes">
+					<p>Sort By:
+					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %>
+					<%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %>
+					<%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %>
+					<!-- <%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></p> -->
 					<% @notes.each do |note| %>
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
@@ -35,7 +40,7 @@
 				 					</div>
 				    		<div class="row ">
 				    			<div class= "col-xs-12 noteDate">
-				    				<%= note.updated_at %>
+				    				Updated: <%= note.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b %d, %Y, %I:%M %p") %>
 				    			</div>
 				    		</div>
 			    		</div>
@@ -95,6 +100,11 @@
 				<!--Groups Area-->
 				<!--Notes taken will appear here if in a group-->
 				<div class="groupsArea visible-lg visible-md">
+					<!-- <p>Sort By:
+					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[0]}) %>
+					<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %>
+					<%= link_to("Created", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[2]}) %>
+					<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></p> -->
 					<% @tagNames.each do |tagName| %>
 				    <tr>
 				    	<div class="panel panel-default">
