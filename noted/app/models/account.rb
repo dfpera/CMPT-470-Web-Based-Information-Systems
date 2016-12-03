@@ -1,5 +1,7 @@
 class Account < ApplicationRecord
 	has_secure_password
+	has_many :notes
+	has_many :tags
 
 	validates :username,
 		:presence => true,

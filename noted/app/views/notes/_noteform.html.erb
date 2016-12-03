@@ -1,18 +1,41 @@
 <%= form_for [@note], remote: true, :html => { :role => "noteform" } do |f| %>
   <div class="form-group">
-          <%= f.label :title %><br>
-          <%= f.text_field :title, class: "form-control" %>
-        </div>
-       
-        <div class="form-group">
-          <%= f.label :text %><br>
-          <%= f.text_area :text, class: "form-control" %>
-        </div>
-        <div class="form-group" id="tags-form">
-          <input type="text" class="form-control" id="tags" placeholder="Tags (Press Enter after each tag)">
-        </div>
-        <ul class="list-inline" id="tag-list">
-        </ul>
+    <% if @note.errors.any? %>
+      <p>Following errors when saving note:</p>
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :text %><br>
+    <%= f.text_area :text, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :permalink %><br>
+    <%= f.text_field :permalink, class: "form-control" %>
+  </div>
+
+  <!-- <div class="form-group">
+    <%= f.label :alarm %><br>
+    <%= f.text_area :text, class: "form-control" %>
+  </div> -->
+
+  <div class="form-group" id="tags-form">
+    <%= f.label "Tags" %>
+    <input type="text" class="form-control" id="tags" placeholder="Tags (Press Enter after each tag)">
+  </div>
+  <ul class="list-inline" id="tag-list">
+  </ul>
 
   <%= f.submit "Submit", class: "btn btn-default pull-left" %>
 <% end %>

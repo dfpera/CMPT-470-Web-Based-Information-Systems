@@ -1,18 +1,40 @@
 <%= form_for :note, url: note_path(@note.id),remote: true, :html => { :role => "editform" }, method: :patch do |f| %>
   <div class="form-group">
-          <%= f.label :title %><br>
-          <%= f.text_field :title, class: "form-control" %>
-        </div>
-       
-        <div class="form-group">
-          <%= f.label :text %><br>
-          <%= f.text_area :text, class: "form-control" %>
-        </div>
-        <ul class="list-inline" id="tag-list">
-          <% @tags.each do |tag| %>
-            <li><h4><span class="label label-primary"><%= tag.tag_name %> </span></h4></li>
-          <% end %>
-        </ul>
+    <% if @note.errors.any? %>
+      <p>Following errors when saving note:</p>
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :text %><br>
+    <%= f.text_area :text, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :permalink %><br>
+    <%= f.text_field :permalink, class: "form-control" %>
+  </div>
+
+  <!-- <div class="form-group">
+    <%= f.label :alarm %><br>
+    <%= f.text_area :text, class: "form-control" %>
+  </div> -->
+
+  <ul class="list-inline" id="tag-list">
+    <% @tags.each do |tag| %>
+      <li><h4><span class="label label-primary"><%= tag.tag_name %> </span></h4></li>
+    <% end %>
+  </ul>
 
   <%= f.submit "Save", class: "btn btn-default pull-left" %>
 <% end %>
