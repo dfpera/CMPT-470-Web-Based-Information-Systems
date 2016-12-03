@@ -6,99 +6,92 @@ class NotesController < ApplicationController
 	def index
 		# Get all notes where notes.account_id == account_id
 		# account_id is retrieved from the url
-		@notes = Note.where(:account_id => session[:account_id]) # .order("updated_at DESC")
-		@tags = Tag.where(:account_id => session[:account_id])# .select(:tag_name, :pinned, :updated_at, :created_at)
+		@account = Account.find(session[:account_id])
+		@notes = @account.notes # .order("updated_at DESC")
+		@tags = @account.tags# .select(:tag_name, :pinned, :updated_at, :created_at)
 		# Sort both notes and tags for display order
 		@sortNotesLinks = []
 		@sortTagsLinks = []
 		sort_order
-		@tagNames = @tags.select('DISTINCT tag_name')
 	end
 
 	def create
 		@account = Account.find(session[:account_id])
+
 		@note = Note.new(note_params)
+		@account.notes << @note
 
-		@note.account_id = session[:account_id]
-
-		if @note.save
-
+		if !(@note.new_record?)
 			tags = params[:tags]
 			if tags
 				tags.each do |tag|
-					@tag = Tag.new()
-					@tag.tag_name = tag
-					@tag.account_id = session[:account_id]
-					@tag.note_id = @note.id
-					@tag.save
+					@tag = Tag.find_by_tag_name(tag)
+					if !@tag
+						@tag = Tag.new({:account_id => @account.id, :tag_name => tag, :pinned => false})
+					end
+					@note.tags << @tag
 				end
 			end
-
-			redirect_to notes_path
+			redirect_to(notes_path)
 		else
 			render 'new'
 		end
 	end
 
 	def new
-		@noteform = params[:noteform]
-		@account = Account.find(session[:account_id])
 		@note = Note.new
+		@tag = Tag.new
+	end
+
+	def newtag
 		@tag = Tag.new
 	end
 
 	def createtag
 		@tag = Tag.new(tag_params)
 		@tag.account_id = session[:account_id]
-		@tag.note_id = nil
 
 		if @tag.save
-			redirect_to notes_path
+			redirect_to(notes_path)
 		else
 			render 'newtag'
 		end
 	end
 
-	def newtag
-		@noteform = params[:noteform]
-		@tag = Tag.new
-	end
-
+	# TODO: Use this for permalink or remove it completely
 	def show
-		@notes = Note.all
 	end
 
 	def edit
-		@note = Note.find(params[:id])
-		@account = Account.find(session[:account_id])
-		@tags = Tag.where(:note_id => params[:id])
+		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
+		@tags = @note.tags
 	end
 
+	# TODO: Update doesn't work when a validation fails
 	def update
-		@account = Account.find(session[:account_id])
-		@note = Note.find(params[:id])
+		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 
-		if @note.update(note_params)
-			redirect_to notes_path
+		if @note.update_attributes(note_params)
+			redirect_to(notes_path)
 		else
 			render 'edit'
 		end
 	end
 
 	def destroy
-		@note = Note.find(params[:id])
+		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 		@note.destroy
 
-		redirect_to notes_path
+		redirect_to(notes_path)
 	end
 
 	private
 		def note_params
-			params.require(:note).permit(:title,:text,:account_id)
+			params.require(:note).permit(:account_id, :permalink, :title, :text, :alarm)
 		end
 
 		def tag_params
-			params.require(:tag).permit(:tag_name)
+			params.require(:tag).permit(:account_id, :tag_name,  :pinned)
 		end
 
 		def sort_order
