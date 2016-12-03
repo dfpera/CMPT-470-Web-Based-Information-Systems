@@ -85,16 +85,6 @@ class NotesController < ApplicationController
 		redirect_to(notes_path)
 	end
 
-
-	def destroytag
-		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
-		puts @tag
-		@tag.destroy
-
-		redirect_to(notes_path)
-	end
-
-
 	private
 		def note_params
 			params.require(:note).permit(:account_id, :permalink, :title, :text, :alarm)
@@ -127,7 +117,7 @@ class NotesController < ApplicationController
 				@notes = @notes.order(created_at: :asc)
 			when sortsNotes[3] # Tagged
 				@sortNotesLinks[3] += reverse
-				@notes = @notes.order(updated_at: :asc)
+				@notes = @notes.order(updated_at: :desc)
 				untagged = []
 				tagged = []
 				@notes.each do |note|
@@ -138,18 +128,14 @@ class NotesController < ApplicationController
 					end
 				end
 				@notes = []
-				tagged.each do |note|
-					@notes << note
-				end
 				untagged.each do |note|
 					@notes << note
 				end
+				tagged.each do |note|
+					@notes << note
+				end
 			when sortsNotes[3] + reverse # TaggedReverse
-<<<<<<< HEAD
-				@notes = @notes.order(updated_at: :asc)
-=======
 				@notes = @notes.order(updated_at: :desc)
->>>>>>> 5ae21c6bea788e7b5fa88b6cd97f4864cb19c677
 				untagged = []
 				tagged = []
 				@notes.each do |note|
@@ -192,7 +178,7 @@ class NotesController < ApplicationController
 				@tags = @tags.order(created_at: :asc)
 			when sortsTags[3] # Pinned
 				@sortTagsLinks[3] += reverse
-				@tags = @tags.order(pinned: :asc)
+				@tags = @tags.order(pinned: :desc)
 			when sortsTags[3] + reverse # PinnedReverse
 				@tags = @tags.order(pinned: :asc)
 			else # Default (sort by pinned)
