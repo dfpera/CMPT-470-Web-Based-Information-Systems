@@ -1,15 +1,26 @@
 <% @page_title = "Welcome to Noted!" %>
 
 <div class = "container-fluid">
-  <div class = "row">
+  <div class = "row vp">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <div class="jumbotron">
+      <div class="panel panel-default">
+        <div class="panel-body">
         <%= image_tag('logo.png', :width => '100%', :alt => "Noted, Logo") %>
         <p>&nbsp;</p>
         <% if flash[:notice] %>
-          <div class="panel-body">
+          <div class="alert alert-warning" role="alert">
             <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% if flash[:error] %>
+          <div class="alert alert-danger" role="alert">
+            <%= flash[:error] %>
+          </div>
+        <% end %>
+        <% if flash[:success] %>
+          <div class="alert alert-success" role="alert">
+            <%= flash[:success] %>
           </div>
         <% end %>
         <%= form_tag(login_accounts_path, :method => :post) do %>
@@ -21,10 +32,30 @@
           </div>
           <%= submit_tag "Sign In", class: "btn btn-default pull-right" %>
         <% end %>
-        <%= link_to "Sign Up", new_account_path, class: "btn btn-default pull-left"%>
+        <%= link_to "Sign Up", new_account_path, class: "btn btn-default pull-left", id: "sign-up"%>
         <div class="clearfix"></div>
+      </div>
       </div>
     </div>
     <div class="col-md-4"></div>
-  </div>
+    </div>
 </div>
+<% content_for :script do %>
+<script>
+$(document).ready(function() {
+  $('#username').keyup(function() {
+    if($(this).val().length > 0) {
+      $("#sign-up").attr('disabled', true);
+    }
+    else {
+      $("#sign-up").attr('disabled', false);
+    }
+  });
+  $('#sign-up').click(function(e) {
+    if($(this).attr('disabled')){
+      e.preventDefault();
+    }
+  });
+});
+</script>
+<% end %>
