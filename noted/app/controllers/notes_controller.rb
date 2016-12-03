@@ -145,7 +145,11 @@ class NotesController < ApplicationController
 					@notes << note
 				end
 			when sortsNotes[3] + reverse # TaggedReverse
+<<<<<<< HEAD
 				@notes = @notes.order(updated_at: :asc)
+=======
+				@notes = @notes.order(updated_at: :desc)
+>>>>>>> 5ae21c6bea788e7b5fa88b6cd97f4864cb19c677
 				untagged = []
 				tagged = []
 				@notes.each do |note|
