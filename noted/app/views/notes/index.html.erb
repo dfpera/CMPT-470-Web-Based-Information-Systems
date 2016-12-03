@@ -165,7 +165,7 @@
 				  </ul>
 
 					<div class="tab-content">
-			
+
 						<div id="notes" class="tab-pane fade in active">
 							<div class="dropdown sort-mobile">
 						    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by :
@@ -191,7 +191,7 @@
 
 							    		<div class="row">
 							    			<div class= "col-xs-12 noteDate">
-							    				<%= note.updated_at %>
+							    				<%= note.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b %d, %Y, %I:%M %p") %>
 							    			</div>
 							    		</div>
 						    		</div>
