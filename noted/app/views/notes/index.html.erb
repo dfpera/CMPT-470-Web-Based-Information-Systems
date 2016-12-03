@@ -131,7 +131,11 @@
 										<% if tag.pinned %>
 											<span class="glyphicon glyphicon-flag" style="color:black"></span>
 										<% end if %>
-
+										<div class = "tag-buttons">
+					    				<%= link_to tag_notes_path(tag.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+					 							<span class="glyphicon glyphicon-remove" style="color:black"></span>
+					 						<% end %>
+					 					</div>
 
 										<div class="row ">
 							    		<div class= "col-xs-12 tagDate">

@@ -85,6 +85,16 @@ class NotesController < ApplicationController
 		redirect_to(notes_path)
 	end
 
+
+	def destroytag
+		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
+		puts @tag
+		@tag.destroy
+
+		redirect_to(notes_path)
+	end
+
+
 	private
 		def note_params
 			params.require(:note).permit(:account_id, :permalink, :title, :text, :alarm)
