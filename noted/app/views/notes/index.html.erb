@@ -10,7 +10,7 @@
 
 	  		<div class="leftNav ">
   				<div class="navButtons">
-  				 	<%= link_to new_note_path(:noteform => 'true'), remote: true, class: "btn btn-primary" do%>
+  				 	<%= link_to new_note_path, remote: true, class: "btn btn-primary" do%>
 			  			<span class="glyphicon glyphicon-plus" style="color:white"></span>
 			  		<% end %>
 		  		</div>
@@ -77,12 +77,12 @@
 					  <div class="navbar-collapse collapse" id="NavBar">
 							<ul class="nav navbar-nav navbar-left">
 								<li class="hidden-md hidden-lg">
-									<%= link_to new_note_path(:noteform => 'true'), remote: true, class: "btn-sm btn-primary" do%>
+									<%= link_to new_note_path, remote: true, class: "btn-sm btn-primary" do%>
 			  						<span class="glyphicon glyphicon-plus" style="color:white"></span>
 			  					<% end %>
 			  				</li>
 								<li>
-									<%= link_to tag_notes_path(:noteform => 'false'), remote: true, class: "btn-sm btn-primary" do%>
+									<%= link_to tag_notes_path, remote: true, class: "btn-sm btn-primary" do%>
 			  						<span class="glyphicon glyphicon-tag" style="color:white"></span>
 			  					<% end %>
 			  				</li>
@@ -105,36 +105,39 @@
 					<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %>
 					<%= link_to("Created", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[2]}) %>
 					<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></p> -->
-					<% @tagNames.each do |tagName| %>
-				    <tr>
-				    	<div class="panel panel-default">
-				    		<div class = "panel-heading"><%= tagName.tag_name %></div>
-				    		<div class = "panel-body">
-				    			<% @tags.each do |tag| %>
-				    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
-				    					<% tag_note = @notes.find_by_id(tag.note_id) %>
-				    					<% if tag_note != nil %>
-					    					<div class="panel panel-default groupNotesBox">
-									    		<div class = "panel-heading">
-									    			<%= tag_note.title%>
-														<div class = "note-buttons">
-									    				<%= link_to note_path(tag_note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
-									 							<span class="glyphicon glyphicon-remove" style="color:black"></span>
-									 						<% end %>
-									 						<%= link_to edit_note_path(tag_note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
-									 							<span class="glyphicon glyphicon-edit" style="color:black"></span>
-									 						<% end %>
-									 					</div>
-									    		</div>
-									    		<div class = "panel-body"><%= tag_note.text%></div>
-									    	</div>
-									    <% end %>
-							   		<% end %>
-							  	<% end %>
-				    		</div>
-				    	</div>
-				    </tr>
-			  	<% end %>
+					<% @tags.each do |tag| %>
+						<tr>
+							<div class="panel panel-default">
+
+								<div class = "panel-heading"> <!--Tag Title -->
+									<%= tag.tag_name %>
+								</div>
+
+								<div class = "panel-body"> <!--Tag Notes -->
+									<% tag.notes.each do |note| %>
+										<div class="panel panel-default groupNotesBox">
+												<div class = "panel-heading"> <!--Note Title -->
+													<%= note.title%>
+													<div class = "note-buttons"> <!--Delete/Edit Buttons-->
+
+														<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+															<span class="glyphicon glyphicon-remove" style="color:black;"></span>
+														<% end %>
+
+														<%= link_to edit_note_path(note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
+															<span class="glyphicon glyphicon-edit" style="color:black"></span>
+														<% end %>
+													</div>
+												</div>
+											<div class = "panel-body"> <!--Note Contents -->
+												<%= note.text%>
+											</div>
+										</div>
+									<% end %>
+								</div>
+							</div>
+						</tr>
+					<% end %>
 			  </div>
 
 		  	<div class = "mobileTabs visible-sm visible-xs">
@@ -169,36 +172,39 @@
 						  	<% end %>
 						</div>
 						<div id="groups" class="tab-pane fade">
-								<% @tagNames.each do |tagName| %>
-							    <tr>
-							    	<div class="panel panel-default">
-							    		<div class = "panel-heading"><%= tagName.tag_name %></div>
-							    		<div class = "panel-body">
-							    			<% @tags.each do |tag| %>
-							    				<% if tag.tag_name.downcase == tagName.tag_name.downcase %>
-							    					<% tag_note = @notes.find_by_id(tag.note_id) %>
-							    					<% if tag_note != nil %>
-								    					<div class="panel panel-default groupNotesBox">
-												    		<div class = "panel-heading">
-												    			<%= tag_note.title%>
-														    	<div class = "note-buttons">
-												    				<%= link_to note_path(tag_note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
-												 							<span class="glyphicon glyphicon-remove" style="color:black;"></span>
-												 						<% end %>
-												 						<%= link_to edit_note_path(tag_note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
-												 							<span class="glyphicon glyphicon-edit" style="color:black"></span>
-												 						<% end %>
-											 						</div>
-												    		</div>
-												    		<div class = "panel-body"><%= tag_note.text%></div>
-												    	</div>
-												    <% end %>
-										   		<% end %>
-										  	<% end %>
-							    		</div>
-							    	</div>
-							    </tr>
-						  	<% end %>
+							<% @tags.each do |tag| %>
+								<tr>
+									<div class="panel panel-default">
+
+										<div class = "panel-heading"> <!--Tag Title -->
+											<%= tag.tag_name %>
+										</div>
+
+										<div class = "panel-body"> <!--Tag Notes -->
+											<% tag.notes.each do |note| %>
+												<div class="panel panel-default groupNotesBox">
+														<div class = "panel-heading"> <!--Note Title -->
+															<%= note.title%>
+															<div class = "note-buttons"> <!--Delete/Edit Buttons-->
+
+																<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+																	<span class="glyphicon glyphicon-remove" style="color:black;"></span>
+																<% end %>
+
+																<%= link_to edit_note_path(note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
+																	<span class="glyphicon glyphicon-edit" style="color:black"></span>
+																<% end %>
+															</div>
+														</div>
+													<div class = "panel-body"> <!--Note Contents -->
+														<%= note.text%>
+													</div>
+												</div>
+											<% end %>
+										</div>
+									</div>
+								</tr>
+								<% end %>
 						</div>
 					</div>
 
