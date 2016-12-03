@@ -4,7 +4,8 @@
   <div class = "row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <div class="jumbotron">
+      <div class="panel panel-default">
+        <div class="panel-body">
         <%= image_tag('logo.png', :width => '100%', :alt => "Noted, Logo") %>
         <p>&nbsp;</p>
         <% if flash[:notice] %>
@@ -24,7 +25,8 @@
         <%= link_to "Sign Up", new_account_path, class: "btn btn-default pull-left"%>
         <div class="clearfix"></div>
       </div>
+      </div>
     </div>
     <div class="col-md-4"></div>
-  </div>
+    </div>
 </div>
