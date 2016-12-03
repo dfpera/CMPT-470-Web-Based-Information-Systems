@@ -117,7 +117,7 @@ class NotesController < ApplicationController
 				@notes = @notes.order(created_at: :asc)
 			when sortsNotes[3] # Tagged
 				@sortNotesLinks[3] += reverse
-				@notes = @notes.order(updated_at: :asc)
+				@notes = @notes.order(updated_at: :desc)
 				untagged = []
 				tagged = []
 				@notes.each do |note|
@@ -128,14 +128,14 @@ class NotesController < ApplicationController
 					end
 				end
 				@notes = []
-				tagged.each do |note|
-					@notes << note
-				end
 				untagged.each do |note|
 					@notes << note
 				end
+				tagged.each do |note|
+					@notes << note
+				end
 			when sortsNotes[3] + reverse # TaggedReverse
-				@notes = @notes.order(updated_at: :asc)
+				@notes = @notes.order(updated_at: :desc)
 				untagged = []
 				tagged = []
 				@notes.each do |note|
