@@ -6,6 +6,7 @@
 
 $leftNav-height: 50px;
 $leftTag-height: 80px;
+$dropdown-height: 50px;
 $pad: 10px;
 
 .leftbar{
@@ -15,12 +16,19 @@ $pad: 10px;
 }
 
 .leftbar .leftNav{
-	height: $leftNav-height;
+	height: $leftNav-height + #{$dropdown-height};
 }
 
 .leftbar .leftNav .navButtons{
 	height: 48px;
+	padding-left: $pad;
+	padding-right: $pad;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 
+.leftbar .leftNav .navButtons .btn{
+	height: 100%;
 }
 
 .leftNavButtons{
@@ -36,9 +44,9 @@ $pad: 10px;
 	margin-top: $pad;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	height: calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height});
-  height:-moz-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height});
-  height:-webkit-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height});
+	height: calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height} - #{$dropdown-height});
+  height:-moz-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height} - #{$dropdown-height});
+  height:-webkit-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height} - #{$dropdown-height});
   padding-right: $pad;
   padding-left: $pad;
 }
@@ -79,10 +87,6 @@ $pad: 10px;
 
 }
 
-.groupNotesBox > .panel-heading{
-
-}
-
 .groupNotesBox .note-buttons {
   display: none;
 }
@@ -101,7 +105,6 @@ $pad: 10px;
 	margin: 0;
 }
 
-
 .rightbar{
 	background-color: #2e4f68;
  	padding-left: 0;
@@ -109,14 +112,21 @@ $pad: 10px;
   height: 100vh;
 }
 
+.groups{
+	height:calc(100% - 60px);
+  height:-moz-calc(100% - 60px);
+  height:-webkit-calc(100% - 60px);
+}
+
 .groupsArea{
-	padding-top: $pad;
+	margin: 0px;
 	padding-left: $pad;
 	padding-right: $pad;
+	padding-bottom: 0px;
 	overflow-y: scroll;
-	height:calc(100% - 50px);
-  height:-moz-calc(100% - 50px);
-  height:-webkit-calc(100% - 50px);
+	height:calc(100% - #{$dropdown-height});
+  height:-moz-calc(100% - #{$dropdown-height});
+  height:-webkit-calc(100% - #{$dropdown-height});
 }
 
 .navbar{
@@ -159,5 +169,23 @@ $pad: 10px;
 }
 
 .panel-heading .btn-primary{
-		background-color: transparent;
+	background-color: transparent;
 }
+
+.dropdown.sort{
+	margin: $pad;
+}
+
+.dropdown.sort-mobile{
+	margin-bottom: $pad;
+
+}
+
+.dropdown-toggle{
+	width: 100%;
+}
+
+.dropdown-menu{
+	width: 100%;
+}
+

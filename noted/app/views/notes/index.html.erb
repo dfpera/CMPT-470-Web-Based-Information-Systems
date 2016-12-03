@@ -17,14 +17,18 @@
 		  		<div class="line"></div>
 	  		</div>
 
-
+	  		<div class="dropdown sort">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by :
+				  <span class="caret"></span></button>
+				    <ul class="dropdown-menu">
+				      <li><%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %></li>
+						  <li><%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %></li>
+						  <li><%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %></li>
+						  <li><%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></li>
+				  	</ul>
+				</div>
 
 		  	<div class="notes">
-					<p>Sort By:
-					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %>
-					<%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %>
-					<%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %>
-					<!-- <%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></p> -->
 					<% @notes.each do |note| %>
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
@@ -97,48 +101,61 @@
 
 					</div>
 				</nav>
+
+				<span class="groups visible-lg visible-md">
+					<div class="dropdown sort">
+					   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by :
+					   <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+					      <li><%= link_to("Alphabetical", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[0]}) %></li>
+							  <li>	<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %></li>
+							  <li><%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></li>
+
+					    </ul>
+					</div>
 				<!--Groups Area-->
 				<!--Notes taken will appear here if in a group-->
-				<div class="groupsArea visible-lg visible-md">
-					<!-- <p>Sort By:
-					<%= link_to("Alphabetical", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[0]}) %>
-					<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %>
-					<%= link_to("Created", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[2]}) %>
-					<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></p> -->
-					<% @tags.each do |tag| %>
-						<tr>
-							<div class="panel panel-default">
+					<div class="groupsArea">
+						<!-- <p>Sort By:
+						<%= link_to("Alphabetical", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[0]}) %>
+						<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %>
+						<%= link_to("Created", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[2]}) %>
+						<%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></p> -->
+						<% @tags.each do |tag| %>
+							<tr>
+								<div class="panel panel-default">
 
-								<div class = "panel-heading"> <!--Tag Title -->
-									<%= tag.tag_name %>
-								</div>
+									<div class = "panel-heading"> <!--Tag Title -->
+										<%= tag.tag_name %>
+									</div>
 
-								<div class = "panel-body"> <!--Tag Notes -->
-									<% tag.notes.each do |note| %>
-										<div class="panel panel-default groupNotesBox">
-												<div class = "panel-heading"> <!--Note Title -->
-													<%= note.title%>
-													<div class = "note-buttons"> <!--Delete/Edit Buttons-->
+									<div class = "panel-body"> <!--Tag Notes -->
+										<% tag.notes.each do |note| %>
+											<div class="panel panel-default groupNotesBox">
+													<div class = "panel-heading"> <!--Note Title -->
+														<%= note.title%>
+														<div class = "note-buttons"> <!--Delete/Edit Buttons-->
 
-														<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
-															<span class="glyphicon glyphicon-remove" style="color:black;"></span>
-														<% end %>
+															<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+																<span class="glyphicon glyphicon-remove" style="color:black;"></span>
+															<% end %>
 
-														<%= link_to edit_note_path(note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
-															<span class="glyphicon glyphicon-edit" style="color:black"></span>
-														<% end %>
+															<%= link_to edit_note_path(note.id), remote: true, class: "btn-sm btn-primary pull-right" do%>
+																<span class="glyphicon glyphicon-edit" style="color:black"></span>
+															<% end %>
+														</div>
 													</div>
+												<div class = "panel-body"> <!--Note Contents -->
+													<%= note.text%>
 												</div>
-											<div class = "panel-body"> <!--Note Contents -->
-												<%= note.text%>
 											</div>
-										</div>
-									<% end %>
+										<% end %>
+									</div>
 								</div>
-							</div>
-						</tr>
-					<% end %>
-			  </div>
+							</tr>
+						<% end %>
+				  </div>
+				</span>
 
 		  	<div class = "mobileTabs visible-sm visible-xs">
 		  		<ul class="nav nav-tabs">
@@ -147,7 +164,18 @@
 				  </ul>
 
 					<div class="tab-content">
+			
 						<div id="notes" class="tab-pane fade in active">
+							<div class="dropdown sort-mobile">
+						    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by :
+						    <span class="caret"></span></button>
+						    <ul class="dropdown-menu">
+						      <li><%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %></li>
+								  <li><%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %></li>
+								  <li><%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %></li>
+								  <li><%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></li>
+						    </ul>
+						  </div>
 							<% @notes.each do |note| %>
 						    <tr>
 						    	<div class="panel panel-default container-fluid notesBox">
@@ -172,6 +200,15 @@
 						  	<% end %>
 						</div>
 						<div id="groups" class="tab-pane fade">
+							<div class="dropdown sort-mobile">
+							   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by :
+							   <span class="caret"></span></button>
+							    <ul class="dropdown-menu">
+							      <li><%= link_to("Alphabetical", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[0]}) %></li>
+									  <li>	<%= link_to("Updated", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[1]}) %></li>
+									  <li><%= link_to("Pinned", {:action => 'index', :sortNotes => params[:sortNotes], :sortTags => @sortTagsLinks[3]}) %></li>
+							  </ul>
+							</div>
 							<% @tags.each do |tag| %>
 								<tr>
 									<div class="panel panel-default">
