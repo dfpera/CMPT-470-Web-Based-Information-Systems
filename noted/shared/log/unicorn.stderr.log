@@ -1,0 +1,453 @@
+/var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:180:in `rename': Text file busy @ rb_file_s_rename - (/home/ubuntu/project/noted/shared/pids/0.6259012654002436.24585, /home/ubuntu/project/noted/shared/pids/unicorn.pid) (Errno::ETXTBSY)
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:180:in `clobber_pid'
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:210:in `pid='
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:127:in `start'
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+	from /usr/local/bin/unicorn:23:in `load'
+	from /usr/local/bin/unicorn:23:in `<main>'
+/var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:180:in `rename': Text file busy @ rb_file_s_rename - (/home/ubuntu/project/noted/shared/pids/0.10179958266448719.24717, /home/ubuntu/project/noted/shared/pids/unicorn.pid) (Errno::ETXTBSY)
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:180:in `clobber_pid'
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:210:in `pid='
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:127:in `start'
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+	from /usr/local/bin/unicorn:23:in `load'
+	from /usr/local/bin/unicorn:23:in `<main>'
+/var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:180:in `rename': Text file busy @ rb_file_s_rename - (/home/ubuntu/project/noted/shared/pids/0.5511379332766314.24788, /home/ubuntu/project/noted/shared/pids/unicorn.pid) (Errno::ETXTBSY)
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:180:in `clobber_pid'
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:210:in `pid='
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:127:in `start'
+	from /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+	from /usr/local/bin/unicorn:23:in `load'
+	from /usr/local/bin/unicorn:23:in `<main>'
+I, [2016-12-04T07:27:07.525628 #24842]  INFO -- : Refreshing Gem list
+I, [2016-12-04T07:27:09.674663 #24842]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T07:27:09.674800 #24842]  INFO -- : worker=0 spawning...
+I, [2016-12-04T07:27:09.675495 #24842]  INFO -- : worker=1 spawning...
+I, [2016-12-04T07:27:09.676178 #24842]  INFO -- : master process ready
+I, [2016-12-04T07:27:09.676480 #24845]  INFO -- : worker=0 spawned pid=24845
+I, [2016-12-04T07:27:09.680204 #24845]  INFO -- : worker=0 ready
+I, [2016-12-04T07:27:09.680484 #24848]  INFO -- : worker=1 spawned pid=24848
+I, [2016-12-04T07:27:09.685468 #24848]  INFO -- : worker=1 ready
+E, [2016-12-04T07:30:13.847207 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:30:13.847426 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:30:13.847562 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:30:13.847680 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:30:13.847795 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:30:13.847867 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:30:13.847986 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:30:13.848090 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:30:13.848193 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:30:13.848294 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:30:13.848421 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:30:13.848530 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:30:13.848708 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:30:15.761947 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:30:15.762177 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:30:15.762310 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:30:15.762446 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:30:15.762538 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:30:15.762670 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:30:15.762801 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:30:15.762930 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:30:15.763024 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:30:15.763101 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:30:15.763425 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:30:15.763565 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:30:15.763670 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:30:29.789792 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:30:29.790094 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:30:29.790285 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:30:29.790438 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:30:29.790613 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:30:29.790786 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:30:29.790941 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:30:29.791115 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:30:29.791277 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:30:29.791448 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:30:29.791646 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:30:29.791815 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:30:29.791973 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:33:21.283257 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:33:21.283405 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:33:21.283562 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:33:21.283703 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:33:21.283829 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:33:21.283972 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:33:21.284108 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:33:21.284231 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:33:21.284365 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:33:21.284512 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:33:21.284617 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:33:21.284743 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:33:21.284868 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:33:27.211994 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:33:27.212136 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:33:27.212264 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:33:27.212395 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:33:27.212521 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:33:27.212652 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:33:27.212725 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:33:27.212785 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:33:27.212842 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:33:27.212903 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:33:27.212964 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:33:27.213019 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:33:27.213079 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:33:59.976998 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:33:59.977145 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:33:59.977277 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:33:59.977412 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:33:59.977541 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:33:59.977676 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:33:59.977806 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:33:59.977955 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:33:59.978097 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:33:59.978244 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:33:59.978381 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:33:59.978512 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:33:59.978566 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:27.431447 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:27.431624 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:27.431705 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:27.431778 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:27.431873 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:27.431979 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:27.432051 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:27.432118 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:27.432187 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:27.432255 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:27.432323 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:27.432388 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:27.432460 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:29.229733 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:29.229860 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:29.229921 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:29.229975 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:29.230026 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:29.230075 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:29.230127 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:29.230176 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:29.230227 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:29.230278 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:29.230402 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:29.230460 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:29.230507 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:29.436091 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:29.436225 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:29.436292 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:29.436355 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:29.436415 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:29.436483 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:29.436542 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:29.436597 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:29.436654 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:29.436711 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:29.436768 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:29.436822 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:29.436875 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:39.816936 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:39.817200 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:39.817353 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:39.817512 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:39.817680 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:39.817847 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:39.818009 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:39.818170 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:39.818320 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:39.818463 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:39.818574 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:39.818728 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:39.818867 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:39.944580 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:39.944776 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:39.944846 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:39.944909 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:39.944975 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:39.945036 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:39.945100 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:39.945161 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:39.945220 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:39.945279 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:39.945339 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:39.945395 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:39.945445 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:50.137355 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:50.137471 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:50.137599 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:50.137712 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:50.137821 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:50.137956 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:50.138136 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:50.138210 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:50.138437 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:50.138569 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:50.138638 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:50.138747 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:50.138862 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:50.267100 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:50.267224 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:50.267283 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:50.267337 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:50.267401 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:50.267458 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:50.267511 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:50.267563 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:50.267614 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:50.267666 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:50.267714 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:50.267765 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:50.267813 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:52.672182 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:52.672381 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:52.672480 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:52.672573 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:52.672642 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:52.672706 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:52.672769 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:52.672825 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:52.672885 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:52.672950 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:52.673018 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:52.673074 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:52.673209 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:35:52.850974 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:35:52.851109 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:35:52.851176 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:35:52.851238 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:35:52.851294 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:35:52.851349 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:35:52.851404 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:35:52.851456 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:35:52.851503 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:35:52.851550 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:35:52.851595 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:35:52.851645 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:35:52.851690 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:44:31.510674 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:44:31.510887 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:44:31.510963 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:44:31.511021 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:44:31.511078 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:44:31.511138 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:44:31.511191 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:44:31.511244 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:44:31.511295 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:44:31.511346 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:44:31.511393 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:44:31.511444 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:44:31.511491 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:44:31.639179 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:44:31.639312 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:44:31.639371 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:44:31.639430 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:44:31.639486 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:44:31.639541 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:44:31.639595 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:44:31.639650 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:44:31.639703 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:44:31.639757 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:44:31.639890 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:44:31.639940 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:44:31.639990 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T07:57:53.770108 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T07:57:53.770348 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T07:57:53.770489 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T07:57:53.770610 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T07:57:53.770727 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T07:57:53.770848 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T07:57:53.771015 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T07:57:53.771148 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T07:57:53.771274 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T07:57:53.771443 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T07:57:53.771528 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T07:57:53.771620 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T07:57:53.771670 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T08:02:07.057362 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T08:02:07.057463 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T08:02:07.057517 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T08:02:07.057567 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T08:02:07.057614 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T08:02:07.057665 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T08:02:07.057713 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T08:02:07.057762 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T08:02:07.057810 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T08:02:07.057861 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T08:02:07.057909 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T08:02:07.057954 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T08:02:07.058004 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T08:02:11.109174 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T08:02:11.109338 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T08:02:11.109439 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T08:02:11.109560 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T08:02:11.109613 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T08:02:11.109666 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T08:02:11.109794 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T08:02:11.109853 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T08:02:11.109956 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T08:02:11.110016 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T08:02:11.110125 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T08:02:11.110224 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T08:02:11.110354 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T08:02:11.648898 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T08:02:11.649066 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T08:02:11.649256 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T08:02:11.649360 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T08:02:11.649460 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T08:02:11.649533 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T08:02:11.649580 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T08:02:11.649627 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T08:02:11.649673 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T08:02:11.649718 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T08:02:11.649767 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T08:02:11.649815 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T08:02:11.649860 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T08:04:50.010851 #24845] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T08:04:50.011005 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T08:04:50.011116 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T08:04:50.011227 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T08:04:50.011300 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T08:04:50.011370 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T08:04:50.011438 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T08:04:50.011490 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T08:04:50.011541 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T08:04:50.011592 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T08:04:50.011642 #24845] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T08:04:50.011687 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T08:04:50.011732 #24845] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T08:04:51.653661 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T08:04:51.653763 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T08:04:51.653889 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T08:04:51.653971 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T08:04:51.654046 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T08:04:51.654119 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T08:04:51.654193 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T08:04:51.654268 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T08:04:51.654316 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T08:04:51.654370 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T08:04:51.654444 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T08:04:51.654525 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T08:04:51.654571 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+E, [2016-12-04T08:09:01.542492 #24848] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T08:09:01.542591 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T08:09:01.542645 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T08:09:01.542699 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T08:09:01.542761 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T08:09:01.542820 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T08:09:01.542877 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T08:09:01.542937 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T08:09:01.542988 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T08:09:01.543036 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T08:09:01.543085 #24848] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T08:09:01.543133 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T08:09:01.543229 #24848] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+I, [2016-12-04T08:11:04.244980 #24842]  INFO -- : reaped #<Process::Status: pid 24845 exit 0> worker=0
+I, [2016-12-04T08:11:04.245213 #24842]  INFO -- : reaped #<Process::Status: pid 24848 exit 0> worker=1
+I, [2016-12-04T08:11:04.245371 #24842]  INFO -- : master complete
+I, [2016-12-04T08:11:07.643926 #32338]  INFO -- : Refreshing Gem list
+I, [2016-12-04T08:11:09.894771 #32338]  INFO -- : unlinking existing socket=/tmp/unicorn.sock
+I, [2016-12-04T08:11:09.894978 #32338]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T08:11:09.895075 #32338]  INFO -- : worker=0 spawning...
+I, [2016-12-04T08:11:09.895806 #32338]  INFO -- : worker=1 spawning...
+I, [2016-12-04T08:11:09.896854 #32338]  INFO -- : master process ready
+I, [2016-12-04T08:11:09.896156 #32341]  INFO -- : worker=0 spawned pid=32341
+I, [2016-12-04T08:11:09.899494 #32341]  INFO -- : worker=0 ready
+I, [2016-12-04T08:11:09.897148 #32344]  INFO -- : worker=1 spawned pid=32344
+I, [2016-12-04T08:11:09.900445 #32344]  INFO -- : worker=1 ready
+E, [2016-12-04T08:11:34.307174 #32344] ERROR -- : app error: Missing `secret_key_base` for 'production' environment, set this value in `config/secrets.yml` (RuntimeError)
+E, [2016-12-04T08:11:34.307360 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:513:in `validate_secret_key_config!'
+E, [2016-12-04T08:11:34.307455 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:246:in `env_config'
+E, [2016-12-04T08:11:34.307538 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:693:in `build_request'
+E, [2016-12-04T08:11:34.307617 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/application.rb:521:in `build_request'
+E, [2016-12-04T08:11:34.307670 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/engine.rb:521:in `call'
+E, [2016-12-04T08:11:34.307726 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-12-04T08:11:34.307781 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-12-04T08:11:34.307872 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-12-04T08:11:34.307946 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-12-04T08:11:34.308155 #32344] ERROR -- : /var/lib/gems/2.3.0/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+E, [2016-12-04T08:11:34.308206 #32344] ERROR -- : /usr/local/bin/unicorn:23:in `load'
+E, [2016-12-04T08:11:34.308261 #32344] ERROR -- : /usr/local/bin/unicorn:23:in `<main>'
+I, [2016-12-04T08:13:03.080524 #32338]  INFO -- : reaped #<Process::Status: pid 32341 exit 0> worker=0
+I, [2016-12-04T08:13:03.080701 #32338]  INFO -- : reaped #<Process::Status: pid 32344 exit 0> worker=1
+I, [2016-12-04T08:13:03.080890 #32338]  INFO -- : master complete
+I, [2016-12-04T08:13:07.548751 #32453]  INFO -- : Refreshing Gem list
+I, [2016-12-04T08:13:09.714076 #32453]  INFO -- : unlinking existing socket=/tmp/unicorn.sock
+I, [2016-12-04T08:13:09.714227 #32453]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T08:13:09.714320 #32453]  INFO -- : worker=0 spawning...
+I, [2016-12-04T08:13:09.715030 #32453]  INFO -- : worker=1 spawning...
+I, [2016-12-04T08:13:09.715987 #32453]  INFO -- : master process ready
+I, [2016-12-04T08:13:09.715367 #32456]  INFO -- : worker=0 spawned pid=32456
+I, [2016-12-04T08:13:09.718356 #32456]  INFO -- : worker=0 ready
+I, [2016-12-04T08:13:09.725205 #32459]  INFO -- : worker=1 spawned pid=32459
+I, [2016-12-04T08:13:09.726367 #32459]  INFO -- : worker=1 ready
+I, [2016-12-04T18:46:57.839503 #24358]  INFO -- : Refreshing Gem list
+I, [2016-12-04T18:47:00.191289 #24358]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T18:47:00.191505 #24358]  INFO -- : worker=0 spawning...
+I, [2016-12-04T18:47:00.192309 #24358]  INFO -- : worker=1 spawning...
+I, [2016-12-04T18:47:00.193287 #24358]  INFO -- : master process ready
+I, [2016-12-04T18:47:00.192672 #24361]  INFO -- : worker=0 spawned pid=24361
+I, [2016-12-04T18:47:00.196139 #24361]  INFO -- : worker=0 ready
+I, [2016-12-04T18:47:00.193631 #24364]  INFO -- : worker=1 spawned pid=24364
+I, [2016-12-04T18:47:00.197247 #24364]  INFO -- : worker=1 ready
+I, [2016-12-04T19:36:20.672588 #8789]  INFO -- : Refreshing Gem list
+I, [2016-12-04T19:36:23.042992 #8789]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T19:36:23.043160 #8789]  INFO -- : worker=0 spawning...
+I, [2016-12-04T19:36:23.043977 #8789]  INFO -- : worker=1 spawning...
+I, [2016-12-04T19:36:23.045126 #8789]  INFO -- : master process ready
+I, [2016-12-04T19:36:23.044401 #8792]  INFO -- : worker=0 spawned pid=8792
+I, [2016-12-04T19:36:23.050498 #8792]  INFO -- : worker=0 ready
+I, [2016-12-04T19:36:23.050675 #8795]  INFO -- : worker=1 spawned pid=8795
+I, [2016-12-04T19:36:23.050928 #8795]  INFO -- : worker=1 ready
+I, [2016-12-04T19:48:38.527392 #11261]  INFO -- : Refreshing Gem list
+I, [2016-12-04T19:48:40.528375 #11261]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T19:48:40.528562 #11261]  INFO -- : worker=0 spawning...
+I, [2016-12-04T19:48:40.529224 #11261]  INFO -- : worker=1 spawning...
+I, [2016-12-04T19:48:40.530150 #11261]  INFO -- : master process ready
+I, [2016-12-04T19:48:40.529587 #11264]  INFO -- : worker=0 spawned pid=11264
+I, [2016-12-04T19:48:40.530908 #11264]  INFO -- : worker=0 ready
+I, [2016-12-04T19:48:40.534954 #11267]  INFO -- : worker=1 spawned pid=11267
+I, [2016-12-04T19:48:40.539214 #11267]  INFO -- : worker=1 ready
+I, [2016-12-04T20:58:10.349199 #14386]  INFO -- : Refreshing Gem list
+I, [2016-12-04T20:58:12.445475 #14386]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T20:58:12.445595 #14386]  INFO -- : worker=0 spawning...
+I, [2016-12-04T20:58:12.446404 #14386]  INFO -- : worker=1 spawning...
+I, [2016-12-04T20:58:12.447079 #14386]  INFO -- : master process ready
+I, [2016-12-04T20:58:12.455866 #14389]  INFO -- : worker=0 spawned pid=14389
+I, [2016-12-04T20:58:12.456365 #14389]  INFO -- : worker=0 ready
+I, [2016-12-04T20:58:12.456252 #14391]  INFO -- : worker=1 spawned pid=14391
+I, [2016-12-04T20:58:12.457907 #14391]  INFO -- : worker=1 ready
+I, [2016-12-04T21:37:45.101599 #14427]  INFO -- : Refreshing Gem list
+I, [2016-12-04T21:37:47.267338 #14427]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T21:37:47.267468 #14427]  INFO -- : worker=0 spawning...
+I, [2016-12-04T21:37:47.268319 #14427]  INFO -- : worker=1 spawning...
+I, [2016-12-04T21:37:47.269465 #14427]  INFO -- : master process ready
+I, [2016-12-04T21:37:47.268740 #14430]  INFO -- : worker=0 spawned pid=14430
+I, [2016-12-04T21:37:47.272102 #14430]  INFO -- : worker=0 ready
+I, [2016-12-04T21:37:47.269775 #14433]  INFO -- : worker=1 spawned pid=14433
+I, [2016-12-04T21:37:47.272973 #14433]  INFO -- : worker=1 ready
+I, [2016-12-04T22:01:37.762826 #14299]  INFO -- : Refreshing Gem list
+I, [2016-12-04T22:01:39.798724 #14299]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T22:01:39.798848 #14299]  INFO -- : worker=0 spawning...
+I, [2016-12-04T22:01:39.799509 #14299]  INFO -- : worker=1 spawning...
+I, [2016-12-04T22:01:39.800254 #14299]  INFO -- : master process ready
+I, [2016-12-04T22:01:39.800475 #14302]  INFO -- : worker=0 spawned pid=14302
+I, [2016-12-04T22:01:39.808609 #14302]  INFO -- : worker=0 ready
+I, [2016-12-04T22:01:39.808842 #14305]  INFO -- : worker=1 spawned pid=14305
+I, [2016-12-04T22:01:39.810097 #14305]  INFO -- : worker=1 ready
+I, [2016-12-04T22:10:55.285173 #14332]  INFO -- : Refreshing Gem list
+I, [2016-12-04T22:10:57.317453 #14332]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T22:10:57.317576 #14332]  INFO -- : worker=0 spawning...
+I, [2016-12-04T22:10:57.318246 #14332]  INFO -- : worker=1 spawning...
+I, [2016-12-04T22:10:57.318588 #14335]  INFO -- : worker=0 spawned pid=14335
+I, [2016-12-04T22:10:57.319641 #14335]  INFO -- : worker=0 ready
+I, [2016-12-04T22:10:57.319261 #14332]  INFO -- : master process ready
+I, [2016-12-04T22:10:57.319528 #14338]  INFO -- : worker=1 spawned pid=14338
+I, [2016-12-04T22:10:57.323079 #14338]  INFO -- : worker=1 ready
+I, [2016-12-04T22:18:00.715869 #14332]  INFO -- : Refreshing Gem list
+I, [2016-12-04T22:18:02.752604 #14332]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-04T22:18:02.752748 #14332]  INFO -- : worker=0 spawning...
+I, [2016-12-04T22:18:02.753441 #14332]  INFO -- : worker=1 spawning...
+I, [2016-12-04T22:18:02.754438 #14332]  INFO -- : master process ready
+I, [2016-12-04T22:18:02.753801 #14335]  INFO -- : worker=0 spawned pid=14335
+I, [2016-12-04T22:18:02.757124 #14335]  INFO -- : worker=0 ready
+I, [2016-12-04T22:18:02.754740 #14338]  INFO -- : worker=1 spawned pid=14338
+I, [2016-12-04T22:18:02.759111 #14338]  INFO -- : worker=1 ready
