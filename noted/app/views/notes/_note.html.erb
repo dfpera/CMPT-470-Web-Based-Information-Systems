@@ -1,0 +1,21 @@
+	<div class="panel panel-default container-fluid notesBox">
+		<div class = "panel-heading">
+			<div class = "row">
+				<div class = "notetitle"><%= note.title %></div>
+				<div class = "noteButton pull-right">
+						<%= link_to edit_note_path(note.id), remote: true, class: "btn-xs btn-primary" do%>
+							<span class="glyphicon glyphicon-edit" style="color:white"></span>
+						<% end %>
+						<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-xs btn-primary" do%>
+							<span class="glyphicon glyphicon-remove" style="color:white"></span>
+						<%end%>
+				</div>
+			</div>
+			<div class="row">
+				<div class= "col-xs-12 noteDate">
+					Updated: <%= note.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b %d, %Y, %I:%M %p") %>
+				</div>
+			</div>
+		</div>
+	<div class = "panel-body"><%= note.text %></div>
+</div>

@@ -5,59 +5,44 @@
 @import "bootstrap";
 
 $leftNav-height: 50px;
-$leftTag-height: 80px;
-$dropdown-height: 50px;
+$leftTag-height: 70px;
+$dropdown-height: 55px;
 $pad: 10px;
 
-.leftbar{
-	background-color: #545c68;
-	padding: 0px;
-	height: 100vh;
+
+/* Drop downs for sorting */
+.sortmenu{
+	padding: $pad;
+	height: $dropdown-height;
 }
 
-.leftbar .leftNav{
-	height: $leftNav-height + #{$dropdown-height};
+
+
+.dropdown-toggle{
+	width: 100%;
 }
 
-.leftbar .leftNav .navButtons{
-	height: 48px;
-	padding-left: $pad;
-	padding-right: $pad;
-	padding-top: 5px;
-	padding-bottom: 5px;
+.dropdown-menu{
+	width: 100%;
 }
 
-.leftbar .leftNav .navButtons .btn{
-	height: 100%;
-}
-
-.leftNavButtons{
-  background-color: transparent;  
-}
-
-.leftbar .leftNav .line{
-	height: 2px;
-	background-color: white;
-}
+/* Notes */
 
 .notes{
-	margin-top: $pad;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	height: calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height} - #{$dropdown-height});
-  height:-moz-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height} - #{$dropdown-height});
-  height:-webkit-calc(100% - #{$leftNav-height} - #{$pad} - #{$leftTag-height} - #{$dropdown-height});
+	height: calc(100% - #{$leftNav-height} - #{$leftTag-height} - #{$dropdown-height});
+  height:-moz-calc(100% - #{$leftNav-height} - #{$leftTag-height} - #{$dropdown-height});
+  height:-webkit-calc(100% - #{$leftNav-height} - #{$leftTag-height} - #{$dropdown-height});
   padding-right: $pad;
   padding-left: $pad;
+  margin: 0px;
 }
-
 
 .notesBox{
 	border-style: none;
-	margin-bottom: $pad;
 	padding-left: 0px;
 	padding-right: 0px;
-
 }
 
 .notesBox > .panel-heading{
@@ -65,23 +50,31 @@ $pad: 10px;
 	color: white;
 }
 
-
-.notesBox .note-buttons {
-    display: none;
+.notetitle , .tagtitle{
+ 	overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  display:inline-block;
+  width: 80%;
+  padding-left:10px;
 }
 
-.notesBox:hover .note-buttons{
+.notesBox .noteButton{
+	display: none;
+}
+
+.notesBox:hover .noteButton{
 	display: inline;
+}
+
+.notesBox > .panel-body{
+	word-wrap: break-word;
 }
 
 .noteDate{
 	font-size: 10px;
 	text-align: right;
-}
-
-.tagDate{
-	font-size: 10px;
-	text-align: right;
+	height: 50%;
 }
 
 .notesBox{
@@ -92,23 +85,53 @@ $pad: 10px;
 
 }
 
-.groupNotesBox .note-buttons {
-  display: none;
+.tagDate{
+	font-size: 10px;
+	text-align: right;
 }
 
-.groupNotesBox:hover .note-buttons{
-	display: inline;
+/* Left side of layout */
+
+.leftbar{
+	background-color: #545c68;
+	padding: 0px;
+	height: 100vh;
 }
 
+.leftbar > .leftNav{
+	height: $leftNav-height;
+}
+
+.leftbar > .leftNav > .navButtons{
+	height: $leftNav-height - 2px;
+	padding-left: $pad;
+	padding-right: $pad;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.leftNav > .line{
+	height: 2px;
+	background-color: white;
+}
+
+.leftbar > .leftNav > .navButtons > .btn{
+	height: 100%;
+	background-color: transparent;  
+	border: none;
+}
 
 .leftTag{
 	height: $leftTag-height;
 	padding: $pad;
+	margin: 0px;
 }
-.tagBox{
-	height: $leftTag-height - 20px;	
-	margin: 0;
+.lefttag > .well .tagBox{
+	margin: 0px;
 }
+
+
+/* Right side of layout */
 
 .rightbar{
 	background-color: #2e4f68;
@@ -153,6 +176,10 @@ $pad: 10px;
 	color: white;
 }
 
+.navbar-left .btn-primary{
+	background-color: transparent;  
+}
+
 .navbar-default .navbar-nav > li > a {
   color: white;
 }
@@ -177,20 +204,7 @@ $pad: 10px;
 	background-color: transparent;
 }
 
-.dropdown.sort{
-	margin: $pad;
-}
-
-.dropdown.sort-mobile{
-	margin-bottom: $pad;
-
-}
-
-.dropdown-toggle{
-	width: 100%;
-}
-
-.dropdown-menu{
-	width: 100%;
+.spacer{
+	height: 10px;
 }
 

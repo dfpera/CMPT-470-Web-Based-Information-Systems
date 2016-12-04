@@ -78,9 +78,24 @@ class NotesController < ApplicationController
 		end
 	end
 
+	def pintag
+		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
+		@tag.pinned = !@tag.pinned
+		@tag.save
+				redirect_to(notes_path)
+
+	end
+
 	def destroy
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 		@note.destroy
+
+		redirect_to(notes_path)
+	end
+
+	def destroytag
+		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
+		@tag.destroy
 
 		redirect_to(notes_path)
 	end
