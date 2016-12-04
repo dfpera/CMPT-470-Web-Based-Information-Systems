@@ -1,5 +1,4 @@
 class NotesController < ApplicationController
-
 	before_action :confirm_logged_in, :except => [:new, :newtag, :edit]
 	after_action :extend_session
 
@@ -21,6 +20,7 @@ class NotesController < ApplicationController
 		@note = Note.new(note_params)
 		@account.notes << @note
 
+        
 		if !(@note.new_record?)
 			tags = params[:tags]
 			if tags
@@ -32,10 +32,13 @@ class NotesController < ApplicationController
 					@note.tags << @tag
 				end
 			end
-			redirect_to(notes_path)
+			respond_to do |format|
+      	format.js
+    	end
 		else
 			render 'new'
 		end
+
 	end
 
 	def new
@@ -81,9 +84,9 @@ class NotesController < ApplicationController
 	def pintag
 		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
 		@tag.pinned = !@tag.pinned
-		@tag.save
-				redirect_to(notes_path)
-
+		if @tag.save
+			redirect_to(notes_path)
+		end
 	end
 
 	def destroy

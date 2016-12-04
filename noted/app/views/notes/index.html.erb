@@ -23,11 +23,11 @@
 				</div>
 
 				<!--Notes area-->
-		  	<div class="notes">
+		  	<div class="notes" id="notes">
 					<% @notes.each do |note| %>
-			    <tr>
+					<div noteid="<%=note.id%>">
 			    	<%= render partial: 'note', locals: {note: note} %>
-			    </tr>
+			    </div>
 			  	<% end %>
 		  	</div>
 
@@ -86,20 +86,9 @@
 					<div class="groupsArea">
 						
 						<% @tags.each do |tag| %>
-							<tr>
-								<div class="panel panel-default">
-
-									<div class = "panel-heading"> <!--Tag Title -->
-										<%= render partial: 'tag', locals: {tag: tag} %>
-									</div>
-
-									<div class = "panel-body"> <!--Tag Notes -->
-										<% tag.notes.each do |note| %>
-											<%= render partial: 'note', locals: {note: note} %>
-										<% end %>
-									</div>
-								</div>
-							</tr>
+							<div tagId="<%=tag.id%>">
+								<%= render partial: 'tag', locals: {tag: tag} %>
+							</div>
 						<% end %>
 				  </div>
 				</span>
@@ -117,9 +106,9 @@
 							<%= render partial: 'dropdown_note_sort' %>
 							<div class="spacer"></div>
 							<% @notes.each do |note| %>
-						    <tr>
+								<div noteid="<%=note.id%>">
 						    	<%= render partial: 'note', locals: {note: note} %>
-						    </tr>
+						    </div>
 						  	<% end %>
 						</div>
 
@@ -127,22 +116,10 @@
 							<%= render partial: 'dropdown_tag_sort' %>
 							<div class="spacer"></div>
 							<% @tags.each do |tag| %>
-								<tr>
-									<div class="panel panel-default">
-
-										<div class = "panel-heading"> <!--Tag Title -->
-											<%= render partial: 'tag', locals: {tag: tag} %>
-
-										</div>
-
-										<div class = "panel-body"> <!--Tag Notes -->
-												<% tag.notes.each do |note| %>
-																    	<%= render partial: 'note', locals: {note: note} %>
-											<% end %>
-										</div>
-									</div>
-								</tr>
-								<% end %>
+								<div tagId="<%=tag.id%>">
+									<%= render partial: 'tag', locals: {tag: tag} %>
+								</div>
+							<% end %>
 						</div>
 					</div>
 		  	</div>
