@@ -50,5 +50,3 @@ test:
 production:
   <<: *default
   database: noted_production
-  username: noted
-  password: <%= ENV['NOTED_DATABASE_PASSWORD'] %>
