@@ -28,7 +28,7 @@ $pad: 10px;
 
 /* Notes */
 
-.notes{
+.notes#notes_main{
 	overflow-y: scroll;
 	overflow-x: hidden;
 	height: calc(100% - #{$leftNav-height} - #{$leftTag-height} - #{$dropdown-height});
@@ -82,7 +82,13 @@ $pad: 10px;
 	margin-bottom: $pad;
 	padding-left: 0px;
 	padding-right: 0px;
+}
 
+.tagsBox{
+	border-style: none;
+	margin-bottom: $pad;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .tagDate{
@@ -140,13 +146,13 @@ $pad: 10px;
   height: 100vh;
 }
 
-.groups{
+.groupsArea{
 	height:calc(100% - 60px);
   height:-moz-calc(100% - 60px);
   height:-webkit-calc(100% - 60px);
 }
 
-.groupsArea{
+.groups#groups_main{
 	margin: 0px;
 	padding-left: $pad;
 	padding-right: $pad;

@@ -2,6 +2,10 @@
 $('#dialog').modal('toggle');
 
 //Add to notes
-$('#notes').prepend('<%= j render (@note) %>')
+$('.notes').prepend('<%= j render (@note) %>')
 
-//Add to each tag/create tags
+//Add to each tag
+//<% @note.tags.each do |tag| %>
+	//var t = $("[tagid=<%= tag.id %>] > .tagsBox > .panel-body");
+	//t.append('<%= j render (@note) %>');
+//<% end %>

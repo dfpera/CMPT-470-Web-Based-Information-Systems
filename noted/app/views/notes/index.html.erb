@@ -19,15 +19,13 @@
 
 	  		<!--Dropdown for sorting notes-->
 	  		<div class="sortmenu">
-		  		<%= render partial: 'dropdown_note_sort' %>
+		  		<%= render 'dropdown_note_sort' %>
 				</div>
 
 				<!--Notes area-->
-		  	<div class="notes" id="notes">
+		  	<div class="notes" id="notes_main">
 					<% @notes.each do |note| %>
-					<div noteid="<%=note.id%>">
-			    	<%= render partial: 'note', locals: {note: note} %>
-			    </div>
+			    	<%= render note %>
 			  	<% end %>
 		  	</div>
 
@@ -78,51 +76,49 @@
 					</div>
 				</nav>
 
-				<span class="groups visible-lg visible-md">
+				<span class="groupsArea visible-lg visible-md">
 					<div class="sortmenu">
-						<%= render partial: 'dropdown_tag_sort' %>
+						<%= render 'dropdown_tag_sort' %>
 					</div>
 					<!--Groups Area-->
-					<div class="groupsArea">
-						
+					<div class="groups" id="groups_main">
 						<% @tags.each do |tag| %>
-							<div tagId="<%=tag.id%>">
-								<%= render partial: 'tag', locals: {tag: tag} %>
-							</div>
+								<%= render tag %>
 						<% end %>
 				  </div>
 				</span>
 
 				<!--Mobile only-->
-		  	<div class = "mobileTabs visible-sm visible-xs">
+		  	<span class = "mobileTabs visible-sm visible-xs">
 		  		<ul class="nav nav-tabs">
-				    <li class="active tab-width"><a data-toggle="tab" href="#notes">Notes</a></li>
-				    <li class="tab-width"><a data-toggle="tab" href="#groups">Groups</a></li>
+				    <li class="active tab-width"><a data-toggle="tab" href="#notes_tab">Notes</a></li>
+				    <li class="tab-width"><a data-toggle="tab" href="#groups_tab">Groups</a></li>
 				  </ul>
 
 					<div class="tab-content">
 
-						<div id="notes" class="tab-pane fade in active">
-							<%= render partial: 'dropdown_note_sort' %>
+						<div id="notes_tab" class="tab-pane fade in active">
+							<%= render 'dropdown_note_sort' %>
 							<div class="spacer"></div>
-							<% @notes.each do |note| %>
-								<div noteid="<%=note.id%>">
-						    	<%= render partial: 'note', locals: {note: note} %>
-						    </div>
-						  	<% end %>
+							<div class= "notes">
+								<% @notes.each do |note| %>
+			    				<%= render note %>
+							  <% end %>
+						 	</div>
 						</div>
 
-						<div id="groups" class="tab-pane fade">
-							<%= render partial: 'dropdown_tag_sort' %>
+						<div id="groups_tab" class="tab-pane fade">
+							<%= render 'dropdown_tag_sort' %>
 							<div class="spacer"></div>
-							<% @tags.each do |tag| %>
-								<div tagId="<%=tag.id%>">
-									<%= render partial: 'tag', locals: {tag: tag} %>
-								</div>
-							<% end %>
+							<div class= "groups">
+								<% @tags.each do |tag| %>
+									<%= render tag %>
+								<% end %>
+							</div>
 						</div>
 					</div>
-		  	</div>
+
+		  	</span>
 
 		  	<%= render 'dialog' %>
 		</div>

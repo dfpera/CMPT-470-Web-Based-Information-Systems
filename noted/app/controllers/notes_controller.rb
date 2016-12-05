@@ -19,8 +19,6 @@ class NotesController < ApplicationController
 
 		@note = Note.new(note_params)
 		@account.notes << @note
-
-        
 		if !(@note.new_record?)
 			tags = params[:tags]
 			if tags
@@ -55,7 +53,9 @@ class NotesController < ApplicationController
 		@tag.account_id = session[:account_id]
 
 		if @tag.save
-			redirect_to(notes_path)
+			respond_to do |format|
+      	format.js 
+    	end
 		else
 			render 'newtag'
 		end
@@ -84,23 +84,20 @@ class NotesController < ApplicationController
 	def pintag
 		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
 		@tag.pinned = !@tag.pinned
-		if @tag.save
-			redirect_to(notes_path)
-		end
+		@tag.save
 	end
 
 	def destroy
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 		@note.destroy
-
-		redirect_to(notes_path)
+		respond_to do |format|
+      format.js 
+    end
 	end
 
 	def destroytag
 		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
 		@tag.destroy
-
-		redirect_to(notes_path)
 	end
 
 	private
