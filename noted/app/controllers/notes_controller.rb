@@ -30,9 +30,6 @@ class NotesController < ApplicationController
 					@note.tags << @tag
 				end
 			end
-			respond_to do |format|
-      	format.js
-    	end
 		else
 			render 'new'
 		end
@@ -53,9 +50,7 @@ class NotesController < ApplicationController
 		@tag.account_id = session[:account_id]
 
 		if @tag.save
-			respond_to do |format|
-      	format.js 
-    	end
+		
 		else
 			render 'newtag'
 		end
@@ -75,7 +70,7 @@ class NotesController < ApplicationController
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 
 		if @note.update_attributes(note_params)
-			redirect_to(notes_path)
+
 		else
 			render 'edit'
 		end
@@ -90,9 +85,6 @@ class NotesController < ApplicationController
 	def destroy
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 		@note.destroy
-		respond_to do |format|
-      format.js 
-    end
 	end
 
 	def destroytag

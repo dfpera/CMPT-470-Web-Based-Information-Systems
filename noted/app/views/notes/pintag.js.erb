@@ -1,8 +1,11 @@
+var pin = $('.glyphicon.glyphicon-pushpin.pin<%=@tag.id%>');
 if (<%=@tag.pinned %>){
-	document.getElementById('pin<%=@tag.id %>').style.color ="#149ae8";
+	pin[0].style.color ="#149ae8";
+	pin[1].style.color ="#149ae8";
 }
 else{
-	document.getElementById('pin<%=@tag.id %>').style.color ="grey";
+	pin[0].style.color ="grey";
+	pin[1].style.color ="grey";
 }
 
 

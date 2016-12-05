@@ -1,0 +1,4 @@
+//Close modal
+$('#dialog').modal('toggle');
+
+$("<%= j render (@note) %>").replaceAll("[noteid=<%=@note.id%>]");

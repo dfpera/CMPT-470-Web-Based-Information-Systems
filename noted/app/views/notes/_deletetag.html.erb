@@ -1,0 +1,15 @@
+<%= form_for :tag, url: tag_notes_path(@tag.id), remote: true, :html => { :role => "deletetag" } do |f| %>
+
+<div class = "panel-heading">
+  <div class="row">
+    <div class= "col-xs-12 tagDate">
+    Updated: <%= tag.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b %d, %Y, %I:%M %p") %>
+    </div>
+  </div>
+  <div class = "row">
+    <h4><%= tag.tag_name %></h4>
+  </div>
+</div>
+
+  <%= f.submit "Delete", class: "btn btn-default pull-right" %>
+<% end %>

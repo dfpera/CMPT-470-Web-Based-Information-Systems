@@ -8,11 +8,11 @@
 			<!-- pinned button -->
 			<% if tag.pinned %>
 				<%= link_to pin_tag_notes_path(tag.id), method: :patch, remote: true, class: "btn-sm btn-primary" do%>
-					<span id="pin<%=tag.id%>" class="glyphicon glyphicon-pushpin" style="color:#149ae8"></span>
+					<span class="glyphicon glyphicon-pushpin pin<%=tag.id%>" style="color:#149ae8"></span>
 				<% end %>
 			<% else %>
 				<%= link_to pin_tag_notes_path(tag.id), method: :patch, remote: true,class: "btn-sm btn-primary" do%>
-					<span id="pin<%=tag.id%>" class="glyphicon glyphicon-pushpin" style="color:grey"></span>
+					<span class="glyphicon glyphicon-pushpin pin<%=tag.id%>" style="color:grey"></span>
 				<% end %>
 			<% end if %>
 
