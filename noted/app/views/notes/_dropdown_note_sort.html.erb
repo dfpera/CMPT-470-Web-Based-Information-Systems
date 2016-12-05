@@ -1,0 +1,10 @@
+<div class="dropdown sort">
+	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by :
+	<span class="caret"></span></button>
+	<ul class="dropdown-menu">
+	    <li><%= link_to("Alphabetical", {:action => 'index', :sortNotes => @sortNotesLinks[0], :sortTags => params[:sortTags]}) %></li>
+		  <li><%= link_to("Updated", {:action => 'index', :sortNotes => @sortNotesLinks[1], :sortTags => params[:sortTags]}) %></li>
+		  <li><%= link_to("Created", {:action => 'index', :sortNotes => @sortNotesLinks[2], :sortTags => params[:sortTags]}) %></li>
+		  <li><%= link_to("Tagged", {:action => 'index', :sortNotes => @sortNotesLinks[3], :sortTags => params[:sortTags]}) %></li>
+	</ul>
+</div>

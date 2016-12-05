@@ -1,0 +1,18 @@
+//Close modal
+$('#dialog').modal('toggle');
+
+//Add to notes
+$('.notes').prepend('<%= j render (@note) %>')
+
+
+//Add to each tag
+<% @note.tags.each do |tag| %>
+	if($("[tagid=<%= tag.id %>]").length){
+		var t = $("[tagid=<%= tag.id %>] > .tagsBox > .panel-body");
+		t.append('<%= j render (@note) %>');
+	}
+	else{
+		$('.groups').prepend('<%= j render (tag) %>')
+	}
+<% end %>
+

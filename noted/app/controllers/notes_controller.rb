@@ -1,5 +1,4 @@
 class NotesController < ApplicationController
-
 	before_action :confirm_logged_in, :except => [:new, :newtag, :edit]
 	after_action :extend_session
 
@@ -20,7 +19,6 @@ class NotesController < ApplicationController
 
 		@note = Note.new(note_params)
 		@account.notes << @note
-
 		if !(@note.new_record?)
 			tags = params[:tags]
 			if tags
@@ -32,10 +30,10 @@ class NotesController < ApplicationController
 					@note.tags << @tag
 				end
 			end
-			redirect_to(notes_path)
 		else
 			render 'new'
 		end
+
 	end
 
 	def new
@@ -52,7 +50,7 @@ class NotesController < ApplicationController
 		@tag.account_id = session[:account_id]
 
 		if @tag.save
-			redirect_to(notes_path)
+		
 		else
 			render 'newtag'
 		end
@@ -72,17 +70,26 @@ class NotesController < ApplicationController
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 
 		if @note.update_attributes(note_params)
-			redirect_to(notes_path)
+
 		else
 			render 'edit'
 		end
 	end
 
+	def pintag
+		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
+		@tag.pinned = !@tag.pinned
+		@tag.save
+	end
+
 	def destroy
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
 		@note.destroy
+	end
 
-		redirect_to(notes_path)
+	def destroytag
+		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
+		@tag.destroy
 	end
 
 	private

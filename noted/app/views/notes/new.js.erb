@@ -3,7 +3,7 @@ $('.modal-body').html('<%= j render("noteform") %>');
 
 $('#dialog').modal("show");
 
- $(document).ready(function () {
+$(document).ready(function () {
     var tags = [];
     $(window).keydown(function (e) {
       if(e.keyCode == 13) {
@@ -13,11 +13,13 @@ $('#dialog').modal("show");
     $('#tags').keyup(function (e) {
       if(e.keyCode == 13) {
         var tag = $('#tags').val();
-        if(tag && (tags.indexOf(tag) < 0)) {
-          tags.push(tag);
-          $('#tag-list').append('<li><h4><span class="label label-primary">' + tag + '</span></h4>');
-          $('#tags-form').append('<input type="hidden" name="tags[]" id="tags_" value="' + tag + '" />');
-          $('#tags').val('');
+        if(tag.trim().length > 2){
+          if(tag && (tags.indexOf(tag) < 0)) {
+            tags.push(tag);
+            $('#tag-list').append('<li><h4><span class="label label-primary">' + tag + '</span></h4>');
+            $('#tags-form').append('<input type="hidden" name="tags[]" id="tags_" value="' + tag + '" />');
+            $('#tags').val('');
+          }
         }
       }
     });
