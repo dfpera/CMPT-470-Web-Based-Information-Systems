@@ -111,6 +111,11 @@ execute 'DB_migrate_prod' do
   cwd '/home/ubuntu/project/noted'
 end
 
+execute 'precompile-assets' do
+  command 'RAILS_ENV=production rake assets:precompile'
+  cwd '/home/ubuntu/project/noted'
+end
+
 # Unicorn setup
 execute 'unicorn-logdir' do
   command 'mkdir -p shared/pids'
