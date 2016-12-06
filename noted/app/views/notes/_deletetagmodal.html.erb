@@ -1,0 +1,6 @@
+<h4><%= @tag.tag_name %></h4>
+
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<%= link_to destroy_tag_notes_path(id: @tag.id, del: 'true'), method: :delete, remote: true, class: "btn btn-danger pull-right" do%>
+	Delete
+<%end%>

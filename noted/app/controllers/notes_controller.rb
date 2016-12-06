@@ -109,12 +109,26 @@ class NotesController < ApplicationController
 
 	def destroy
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first
-		@note.destroy
+		respond_to do |format|
+			if params[:del] == 'true'
+				@note.destroy
+				format.js { render :action => "destroy"}
+			else
+				format.js { render :action => "deletenote" }
+			end
+		end
 	end
 
 	def destroytag
-		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
-		@tag.destroy
+		@tag = Tag.where(account_id: session[:account_id], id: params[:id]).first
+		respond_to do |format|
+			if params[:del] == 'true'
+				@tag.destroy
+				format.js { render :action => "destroytag"}
+			else
+				format.js { render :action => "deletetag" }
+			end
+		end
 	end
 
 	private
