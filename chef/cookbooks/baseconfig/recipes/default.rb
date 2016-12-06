@@ -45,6 +45,7 @@ package "libffi-dev"
 # Install production server
 package "nginx"
 
+<<<<<<< HEAD
 # Import cookbook files
 cookbook_file "unicorn_noted" do
   path '/etc/init.d/unicorn_noted'
@@ -53,6 +54,8 @@ cookbook_file "nginx-default" do
   path "/etc/nginx/sites-available/default"
 end
 
+=======
+>>>>>>> 091c3ecb5ddf2b073544dcacdcc76a81ad35e865
 # Install dependencies
 execute 'install_boostrap' do
   command 'npm install bootstrap'
@@ -62,6 +65,7 @@ execute 'install_nokogiri' do
 end
 
 # rbenv setup
+<<<<<<< HEAD
 execute 'rbenv_install' do
  command 'sudo git clone git://github.com/sstephenson/rbenv.git .rbenv'
  cwd '/home/ubuntu'
@@ -87,6 +91,33 @@ execute 'rbenv_build_source' do
   cwd '/home/ubuntu'
 end
 execute 'rbenv_vars_install' do
+=======
+execute 'rbenv-install' do
+  command 'sudo git clone git://github.com/sstephenson/rbenv.git .rbenv'
+  cwd '/home/ubuntu'
+end
+execute 'rbenv-export' do
+  command 'echo "export PATH="$HOME/.rbenv/bin:$PATH"" >> ~/.bashrc'
+  cwd '/home/ubuntu'
+end
+execute 'rbenv-eval' do
+  command 'echo "eval "$(rbenv init -)"" >> ~/.bashrc'
+  cwd '/home/ubuntu'
+end
+execute 'rbenv-build-install' do
+  command 'sudo git clone git://github.com/sstephenson/ruby-build.git .rbenv/plugins/ruby-build'
+  cwd '/home/ubuntu'
+end
+execute 'rbenv-build-export' do
+  command 'echo "export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"" >> ~/.bashrc'
+  cwd '/home/ubuntu'
+end
+execute 'rbenv-build-source' do
+  command 'sudo -s source .bashrc'
+  cwd '/home/ubuntu'
+end
+execute 'rbenv-vars-install' do
+>>>>>>> 091c3ecb5ddf2b073544dcacdcc76a81ad35e865
   command 'sudo git clone https://github.com/sstephenson/rbenv-vars.git'
   cwd '/home/ubuntu/.rbenv/plugins'
 end
@@ -119,13 +150,18 @@ execute 'DB_migrate_prod' do
   cwd '/home/ubuntu/project/noted'
 end
 
+<<<<<<< HEAD
 # Precompile assets for Production
 execute 'precompile_assets' do
+=======
+execute 'precompile-assets' do
+>>>>>>> 091c3ecb5ddf2b073544dcacdcc76a81ad35e865
   command 'RAILS_ENV=production rake assets:precompile'
   cwd '/home/ubuntu/project/noted'
 end
 
 # Unicorn setup
+<<<<<<< HEAD
 execute 'unicorn_permissions' do
   command 'sudo chmod 755 /etc/init.d/unicorn_noted'
 end
@@ -133,15 +169,43 @@ execute 'unicorn_init' do
   command 'sudo update-rc.d unicorn_noted defaults'
 end
 execute 'unicorn_start' do
+=======
+execute 'unicorn-logdir' do
+  command 'mkdir -p shared/pids'
+  cwd '/home/ubuntu/project/noted'
+end
+cookbook_file "unicorn_noted" do
+  path '/etc/init.d/unicorn_noted'
+end
+execute 'unicorn-permissions' do
+  command 'sudo chmod 755 /etc/init.d/unicorn_noted'
+end
+execute 'unicorn-init' do
+  command 'sudo update-rc.d unicorn_noted defaults'
+end
+execute 'unicorn-start' do
+>>>>>>> 091c3ecb5ddf2b073544dcacdcc76a81ad35e865
   command 'sudo service unicorn_noted restart'
 end
 
 # nginx start
+<<<<<<< HEAD
 execute 'nginx_restart' do
   command 'sudo service nginx restart'
 end
 
 # Initialize test data
 execute 'test_data' do
+=======
+cookbook_file "nginx-default" do
+  path "/etc/nginx/sites-available/default"
+end
+execute 'nginx_restart' do
+  command 'service nginx restart'
+end
+
+# Initialize test data
+execute 'test-data' do
+>>>>>>> 091c3ecb5ddf2b073544dcacdcc76a81ad35e865
   command 'sudo mysql -u root < "/home/ubuntu/project/data/testdata.sql"'
 end
