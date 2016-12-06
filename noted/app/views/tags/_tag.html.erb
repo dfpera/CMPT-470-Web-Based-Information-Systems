@@ -6,7 +6,7 @@
 			</div>
 
 			<div class = "tagButton pull-right">
-				<%= link_to '#', remote: true, data: { toggle: 'modal', href: tag_notes_path(tag.id), target: '#delete-confirm' },class: "btn-sm btn-primary" do%>
+				<%= link_to destroy_tag_notes_path(id: tag.id, del: 'false'), method: :delete, remote: true, class: "btn-sm btn-prim pull-right" do%>
 						<span class="glyphicon glyphicon-remove" style="color:black"></span>
 				<%end%>
 			</div>

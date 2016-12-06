@@ -7,3 +7,12 @@ I, [2016-12-06T04:29:23.115458 #14336]  INFO -- : worker=0 spawned pid=14336
 I, [2016-12-06T04:29:23.116886 #14336]  INFO -- : worker=0 ready
 I, [2016-12-06T04:29:23.115748 #14339]  INFO -- : worker=1 spawned pid=14339
 I, [2016-12-06T04:29:23.118325 #14339]  INFO -- : worker=1 ready
+I, [2016-12-06T06:14:34.298857 #10306]  INFO -- : Refreshing Gem list
+I, [2016-12-06T06:14:37.198593 #10306]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-06T06:14:37.198852 #10306]  INFO -- : worker=0 spawning...
+I, [2016-12-06T06:14:37.200300 #10306]  INFO -- : worker=1 spawning...
+I, [2016-12-06T06:14:37.201669 #10306]  INFO -- : master process ready
+I, [2016-12-06T06:14:37.201855 #10309]  INFO -- : worker=0 spawned pid=10309
+I, [2016-12-06T06:14:37.203525 #10309]  INFO -- : worker=0 ready
+I, [2016-12-06T06:14:37.202380 #10312]  INFO -- : worker=1 spawned pid=10312
+I, [2016-12-06T06:14:37.206100 #10312]  INFO -- : worker=1 ready

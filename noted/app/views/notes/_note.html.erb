@@ -15,7 +15,7 @@
 						<span class="glyphicon glyphicon-edit" style="color:white"></span>
 					<% end %>
 
-					<%= link_to '#', remote: true, data: { toggle: 'modal', href: note_path(note.id), target: '#delete-confirm' },class: "btn-xs btn-primary" do%>
+					<%= link_to note_path(id: note.id, del: 'false'), method: :delete, remote: true, class: "btn-xs btn-primary" do%>
 						<span class="glyphicon glyphicon-remove" style="color:white"></span>
 					<%end%>
 
