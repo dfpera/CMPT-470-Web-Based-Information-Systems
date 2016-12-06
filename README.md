@@ -20,6 +20,8 @@ NOTES AND TAGS
 
 - Tags can also be created without a note. When doing this a user can decide whether or not they want to pin a tag. A pinned tag can be then be sorted so that only pinned tags appear at the top of the right column.
 
+- Tag Groups can be coloured using a colour picker in the right column. By colouring the tag groups one can organize their notes further allowing them to custom groupings that are easy to distinguish. 
+
 SORTING
 - Notes can be sorted ascending/descending using the following fields:
     Alphabetically, Last Updated, Created Date, Tagged/Untagged
