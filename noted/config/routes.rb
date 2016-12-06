@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post :tag, :action => 'createtag'
       get :tag, :action => 'newtag'
       delete :tag, :action => 'destroytag'
+	  patch :tag, :action => 'colortag'
     end
   end
 end

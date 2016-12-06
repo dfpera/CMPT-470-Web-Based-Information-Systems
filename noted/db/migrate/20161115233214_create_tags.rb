@@ -3,6 +3,7 @@ class CreateTags < ActiveRecord::Migration[5.0]
     create_table :tags do |t|
       t.integer "account_id"
       t.string "tag_name"
+	  t.string "tag_color"
       t.boolean "pinned", :default => false
 
       t.timestamps

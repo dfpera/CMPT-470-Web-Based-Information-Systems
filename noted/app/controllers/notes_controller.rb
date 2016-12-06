@@ -27,7 +27,7 @@ class NotesController < ApplicationController
 				tags.each do |tag|
 					@tag = Tag.find_by_tag_name(tag)
 					if !@tag
-						@tag = Tag.new({:account_id => @account.id, :tag_name => tag, :pinned => false})
+						@tag = Tag.new({:account_id => @account.id, :tag_name => tag, :tag_color => '#FFFFFF', :pinned => false})
 					end
 					@note.tags << @tag
 				end
@@ -50,12 +50,19 @@ class NotesController < ApplicationController
 	def createtag
 		@tag = Tag.new(tag_params)
 		@tag.account_id = session[:account_id]
+		@tag.tag_color = '#FFFFFF'
 
 		if @tag.save
 			redirect_to(notes_path)
 		else
 			render 'newtag'
 		end
+	end
+	
+	def colortag
+		Tag.where(account_id: session[:account_id], id: params[:format]).update_all(tag_color: '#2a9657')
+		
+		redirect_to(notes_path)
 	end
 
 	# TODO: Use this for permalink or remove it completely
