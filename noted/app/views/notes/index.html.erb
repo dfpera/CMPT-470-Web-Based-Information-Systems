@@ -121,7 +121,17 @@
 		  	</span>
 
 		  	<%= render 'dialog' %>
+		  	<%= render 'deletemodal' %>
 		</div>
-
 	</div>
 </div>
+<% content_for :script do %>
+<script>
+$(document).ready(function() {
+	$('#delete-confirm').on('show.bs.modal', function(e) {
+    	$(this).find('#del-button').attr('href', $(e.relatedTarget).data('href'));
+    	$('.modal-body').html('Are you sure?');
+	});
+});
+</script>
+<% end %>

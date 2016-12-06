@@ -10,7 +10,7 @@
 						<span class="glyphicon glyphicon-edit" style="color:white"></span>
 					<% end %>
 
-					<%= link_to note_path(note.id), method: :delete, remote: true, data: { confirm: 'Are you sure?' },class: "btn-xs btn-primary" do%>
+					<%= link_to '#', remote: true, data: { toggle: 'modal', href: note_path(note.id), target: '#delete-confirm' },class: "btn-xs btn-primary" do%>
 						<span class="glyphicon glyphicon-remove" style="color:white"></span>
 					<%end%>
 

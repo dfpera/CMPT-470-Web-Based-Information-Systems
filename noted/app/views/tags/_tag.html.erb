@@ -17,9 +17,9 @@
 			<% end if %>
 
 			<div class = "tagButton pull-right">
-				<%= link_to tag_notes_path(tag.id), method: :delete,remote: true, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary" do%>
-					<span class="glyphicon glyphicon-remove" style="color:black"></span>
-				<% end %>
+				<%= link_to '#', remote: true, data: { toggle: 'modal', href: tag_notes_path(tag.id), target: '#delete-confirm' },class: "btn-sm btn-primary" do%>
+						<span class="glyphicon glyphicon-remove" style="color:black"></span>
+				<%end%>
 			</div>
 
 			<div class="row ">
