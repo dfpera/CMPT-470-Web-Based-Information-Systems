@@ -50,3 +50,5 @@ test:
 production:
   <<: *default
   database: noted_production
+  username: noted_admin
+  password: cmpt470group14
