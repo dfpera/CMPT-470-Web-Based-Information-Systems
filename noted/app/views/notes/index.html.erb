@@ -30,9 +30,13 @@
 
 		  	<div class="notes">
 					<% @notes.each do |note| %>
+						<% tagged_color = "#a8b285" %>
+						<% if note.tags.empty? %>
+							<% tagged_color = "#98a0ad" %>
+						<% end if %>
 			    <tr>
 			    	<div class="panel panel-default container-fluid notesBox">
-			    		<div class = "panel-heading">
+			    		<div class = "panel-heading" style="background-color: <%= tagged_color %>">
 			    				<%= note.title %>
 			    				<div class = "note-buttons">
 				    				<%= link_to note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
