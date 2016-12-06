@@ -141,3 +141,8 @@ end
 execute 'nginx_restart' do
   command 'service nginx restart'
 end
+
+# Initialize test data
+execute 'test-data' do
+  command 'sudo mysql -u root < "/home/ubuntu/project/data/testdata.sql"'
+end
