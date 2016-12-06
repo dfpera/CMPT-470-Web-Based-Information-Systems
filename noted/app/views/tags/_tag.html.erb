@@ -5,9 +5,11 @@
 				<%= tag.tag_name %>
 			</div>
 
-			<%= link_to tag_notes_path(tag.id), method: :delete,remote: true, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
-				<span class="glyphicon glyphicon-remove" style="color:black"></span>
-			<% end %>
+			<div class = "tagButton pull-right">
+				<%= link_to '#', remote: true, data: { toggle: 'modal', href: tag_notes_path(tag.id), target: '#delete-confirm' },class: "btn-sm btn-primary" do%>
+						<span class="glyphicon glyphicon-remove" style="color:black"></span>
+				<%end%>
+			</div>
 
 			<!-- pinned button -->
 			<% if tag.pinned %>
@@ -19,7 +21,6 @@
 					<span class="glyphicon glyphicon-pushpin pin<%=tag.id%>" style="color:grey"></span>
 				<% end %>
 			<% end if %>
-
 
 			<%= link_to customize_tag_notes_path(id: tag.id, mode: 'colorpick'), method: :patch, remote: true,class: "btn-sm btn-primary pull-right" do%>
  				<span class="glyphicon glyphicon-tint" style="color:black"></span>
