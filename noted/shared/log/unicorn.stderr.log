@@ -756,3 +756,48 @@ I, [2016-12-06T00:00:34.844240 #14336]  INFO -- : worker=0 spawned pid=14336
 I, [2016-12-06T00:00:34.853694 #14336]  INFO -- : worker=0 ready
 I, [2016-12-06T00:00:34.853581 #14338]  INFO -- : worker=1 spawned pid=14338
 I, [2016-12-06T00:00:34.855373 #14338]  INFO -- : worker=1 ready
+I, [2016-12-06T00:53:42.888971 #14430]  INFO -- : Refreshing Gem list
+I, [2016-12-06T00:53:45.502436 #14430]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-06T00:53:45.502626 #14430]  INFO -- : worker=0 spawning...
+I, [2016-12-06T00:53:45.503612 #14430]  INFO -- : worker=1 spawning...
+I, [2016-12-06T00:53:45.504690 #14430]  INFO -- : master process ready
+I, [2016-12-06T00:53:45.504008 #14433]  INFO -- : worker=0 spawned pid=14433
+I, [2016-12-06T00:53:45.507480 #14433]  INFO -- : worker=0 ready
+I, [2016-12-06T00:53:45.504990 #14436]  INFO -- : worker=1 spawned pid=14436
+I, [2016-12-06T00:53:45.508148 #14436]  INFO -- : worker=1 ready
+I, [2016-12-06T01:33:43.235045 #14421]  INFO -- : Refreshing Gem list
+I, [2016-12-06T01:33:45.753938 #14421]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-06T01:33:45.754157 #14421]  INFO -- : worker=0 spawning...
+I, [2016-12-06T01:33:45.754919 #14421]  INFO -- : worker=1 spawning...
+I, [2016-12-06T01:33:45.755942 #14421]  INFO -- : master process ready
+I, [2016-12-06T01:33:45.756091 #14424]  INFO -- : worker=0 spawned pid=14424
+I, [2016-12-06T01:33:45.764902 #14424]  INFO -- : worker=0 ready
+I, [2016-12-06T01:33:45.765372 #14427]  INFO -- : worker=1 spawned pid=14427
+I, [2016-12-06T01:33:45.766915 #14427]  INFO -- : worker=1 ready
+I, [2016-12-06T01:58:53.795782 #14436]  INFO -- : Refreshing Gem list
+I, [2016-12-06T01:58:56.288970 #14436]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-06T01:58:56.289262 #14436]  INFO -- : worker=0 spawning...
+I, [2016-12-06T01:58:56.290522 #14436]  INFO -- : worker=1 spawning...
+I, [2016-12-06T01:58:56.292185 #14439]  INFO -- : worker=0 spawned pid=14439
+I, [2016-12-06T01:58:56.293162 #14436]  INFO -- : master process ready
+I, [2016-12-06T01:58:56.293565 #14442]  INFO -- : worker=1 spawned pid=14442
+I, [2016-12-06T01:58:56.293676 #14439]  INFO -- : worker=0 ready
+I, [2016-12-06T01:58:56.302540 #14442]  INFO -- : worker=1 ready
+I, [2016-12-06T02:18:37.899559 #14340]  INFO -- : Refreshing Gem list
+I, [2016-12-06T02:18:40.661565 #14340]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-06T02:18:40.661774 #14340]  INFO -- : worker=0 spawning...
+I, [2016-12-06T02:18:40.662995 #14340]  INFO -- : worker=1 spawning...
+I, [2016-12-06T02:18:40.664498 #14340]  INFO -- : master process ready
+I, [2016-12-06T02:18:40.663470 #14343]  INFO -- : worker=0 spawned pid=14343
+I, [2016-12-06T02:18:40.666134 #14343]  INFO -- : worker=0 ready
+I, [2016-12-06T02:18:40.664879 #14346]  INFO -- : worker=1 spawned pid=14346
+I, [2016-12-06T02:18:40.667117 #14346]  INFO -- : worker=1 ready
+I, [2016-12-06T02:27:11.762893 #14326]  INFO -- : Refreshing Gem list
+I, [2016-12-06T02:27:14.304509 #14326]  INFO -- : listening on addr=/tmp/unicorn.sock fd=9
+I, [2016-12-06T02:27:14.304754 #14326]  INFO -- : worker=0 spawning...
+I, [2016-12-06T02:27:14.305941 #14326]  INFO -- : worker=1 spawning...
+I, [2016-12-06T02:27:14.307173 #14326]  INFO -- : master process ready
+I, [2016-12-06T02:27:14.307262 #14329]  INFO -- : worker=0 spawned pid=14329
+I, [2016-12-06T02:27:14.311805 #14329]  INFO -- : worker=0 ready
+I, [2016-12-06T02:27:14.312184 #14332]  INFO -- : worker=1 spawned pid=14332
+I, [2016-12-06T02:27:14.316128 #14332]  INFO -- : worker=1 ready
