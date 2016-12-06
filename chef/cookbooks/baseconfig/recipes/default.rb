@@ -53,16 +53,6 @@ execute 'install_nokogiri' do
   command 'sudo gem install nokogiri'
 end
 
-# Bundler setup
-execute 'gem_bundler' do
-  command 'sudo gem install bundler --conservative'
-end
-execute 'bundle' do
-  command 'bundle install'
-  cwd '/home/ubuntu/project/noted'
-  user 'ubuntu'
-end
-
 # rbenv setup
 execute 'rbenv-install' do
   command 'sudo git clone git://github.com/sstephenson/rbenv.git .rbenv'
@@ -91,6 +81,16 @@ end
 execute 'rbenv-vars-install' do
   command 'sudo git clone https://github.com/sstephenson/rbenv-vars.git'
   cwd '/home/ubuntu/.rbenv/plugins'
+end
+
+# Bundler setup
+execute 'gem_bundler' do
+  command 'sudo gem install bundler --conservative'
+end
+execute 'bundle' do
+  command 'bundle install'
+  cwd '/home/ubuntu/project/noted'
+  user 'ubuntu'
 end
 
 # Install rails
