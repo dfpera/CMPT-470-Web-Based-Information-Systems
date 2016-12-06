@@ -1,12 +1,14 @@
 <%= form_for @tag, url:tag_notes_path, remote: true, :html => { :role => "tagform" } do |f| %>
   <div class="form-group">
     <% if @tag.errors.any? %>
+      <div class="alert alert-danger">
       <p>Following errors creating new tag:</p>
       <ul>
         <% @tag.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
+      </div>
     <% end %>
   </div>
 
