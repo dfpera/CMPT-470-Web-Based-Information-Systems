@@ -1,12 +1,14 @@
 <%= form_for [@note], remote: true, :html => { :role => "noteform" } do |f| %>
   <div class="form-group">
     <% if @note.errors.any? %>
+      <div class="alert alert-danger">
       <p>Following errors when saving note:</p>
       <ul>
         <% @note.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
+      </div>
     <% end %>
   </div>
 
