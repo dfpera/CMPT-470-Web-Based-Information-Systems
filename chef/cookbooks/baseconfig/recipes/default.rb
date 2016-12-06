@@ -1,8 +1,3 @@
-# Unicorn import
-cookbook_file "unicorn_noted" do
-  path '/etc/init.d/unicorn_noted'
-end
-
 # Make sure the Apt package lists are up to date, so we're downloading versions that exist.
 cookbook_file "apt-sources.list" do
   path "/etc/apt/sources.list"
@@ -123,6 +118,11 @@ execute 'precompile_assets' do
 end
 
 # Unicorn setup
+cookbook_file "unicorn_noted" do
+  path '/etc/init.d/unicorn_noted'
+  action :create
+  mode '0777'
+end
 execute 'unicorn_permissions' do
   command 'sudo chmod 755 /etc/init.d/unicorn_noted'
 end
