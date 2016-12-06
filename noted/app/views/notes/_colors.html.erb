@@ -1,0 +1,32 @@
+<div class="center">
+<div class="row">
+	<div class="col-lg-12">
+		<button id="0" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#2a7eb4"></button>
+		<button id="1" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#5876e2"></button>
+		<button id="2" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#52c4ab"></button>
+		<button id="3" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#e28844"></button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<button id="4" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#d2dd6a"></button>
+		<button id="5" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#53ad5c"></button>
+		<button id="6" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#a0b4c1"></button>
+		<button id="7" type="button" class="btn btn-sq" onClick="color(this.id)" style="background-color:#b4a0c1"></button>
+	</div>
+</div>
+</div>
+
+<script>
+var colors = ["#2a7eb4", "#5876e2", "#52c4ab", "#e28844", "#d2dd6a", "#53ad5c", "#a0b4c1", "#b4a0c1" ];
+function color(val) {
+   $("[tagid=<%= @tag.id %>] > .tagsBox > .panel-heading").css("background-color", colors[val]);
+   $.ajax({
+   	type: "PATCH",
+    url: "<%= customize_tag_notes_path %>",
+    data: { color: colors[val], id: '<%= @tag.id %>', mode: 'colortag' }
+   });
+   $('#dialog').modal('toggle');
+}
+</script>

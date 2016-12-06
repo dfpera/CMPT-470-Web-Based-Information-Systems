@@ -1,27 +1,30 @@
 <div class="tag" tagid="<%=tag.id%>">
 	<div class="panel panel-default tagsBox">
-		<div class = "panel-heading"> <!--Tag Title -->
+		<div class = "panel-heading" style = "background-color: <%= tag.tag_color %>"> <!--Tag Title -->
 			<div class = "tagtitle">
 				<%= tag.tag_name %>
 			</div>
 
+			<%= link_to tag_notes_path(tag.id), method: :delete,remote: true, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary pull-right" do%>
+				<span class="glyphicon glyphicon-remove" style="color:black"></span>
+			<% end %>
+
 			<!-- pinned button -->
 			<% if tag.pinned %>
-				<%= link_to pin_tag_notes_path(tag.id), method: :patch, remote: true, class: "btn-sm btn-primary" do%>
-					<span class="glyphicon glyphicon-pushpin pin<%=tag.id%>" style="color:#149ae8"></span>
+				<%= link_to customize_tag_notes_path(id: tag.id, mode: 'pin'), method: :patch, remote: true, class: "btn-sm btn-primary pull-right" do%>
+					<span class="glyphicon glyphicon-pushpin pin<%=tag.id%>" style="color:red"></span>
 				<% end %>
 			<% else %>
-				<%= link_to pin_tag_notes_path(tag.id), method: :patch, remote: true,class: "btn-sm btn-primary" do%>
+				<%= link_to customize_tag_notes_path(id: tag.id, mode: 'pin'), method: :patch, remote: true,class: "btn-sm btn-primary pull-right" do%>
 					<span class="glyphicon glyphicon-pushpin pin<%=tag.id%>" style="color:grey"></span>
 				<% end %>
 			<% end if %>
 
-			<div class = "tagButton pull-right">
-				<%= link_to tag_notes_path(tag.id), method: :delete,remote: true, data: { confirm: 'Are you sure?' },class: "btn-sm btn-primary" do%>
-					<span class="glyphicon glyphicon-remove" style="color:black"></span>
-				<% end %>
-			</div>
 
+			<%= link_to customize_tag_notes_path(id: tag.id, mode: 'colorpick'), method: :patch, remote: true,class: "btn-sm btn-primary pull-right" do%>
+ 				<span class="glyphicon glyphicon-tint" style="color:black"></span>
+ 			<% end %>
+		
 			<div class="row ">
 				<div class= "col-xs-12 tagDate">
 					Updated: <%= tag.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b %d, %Y, %I:%M %p") %>

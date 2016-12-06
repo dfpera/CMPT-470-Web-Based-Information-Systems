@@ -25,7 +25,7 @@ class NotesController < ApplicationController
 				tags.each do |tag|
 					@tag = Tag.find_by_tag_name(tag)
 					if !@tag
-						@tag = Tag.new({:account_id => @account.id, :tag_name => tag, :pinned => false})
+						@tag = Tag.new({:account_id => @account.id, :tag_name => tag, :tag_color => '#FFFFFF', :pinned => false})
 					end
 					@note.tags << @tag
 				end
@@ -48,6 +48,7 @@ class NotesController < ApplicationController
 	def createtag
 		@tag = Tag.new(tag_params)
 		@tag.account_id = session[:account_id]
+		@tag.tag_color = '#FFFFFF'
 
 		if @tag.save
 		
@@ -55,7 +56,7 @@ class NotesController < ApplicationController
 			render 'newtag'
 		end
 	end
-
+	
 	# TODO: Use this for permalink or remove it completely
 	def show
 	end
@@ -76,11 +77,35 @@ class NotesController < ApplicationController
 		end
 	end
 
-	def pintag
-		@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
-		@tag.pinned = !@tag.pinned
-		@tag.save
+	def customizetag
+		@tag = Tag.where(account_id: session[:account_id], id: params[:id]).first
+		respond_to do |format|
+			if params[:mode] == 'pin'
+				@tag.pinned = !@tag.pinned
+				format.js { render :action => "pintag" }
+				@tag.save
+			elsif params[:mode] == 'colorpick'
+				format.js { render :action => "colorpick" }
+			else
+				format.js { render json: nil, status: :ok}
+				@tag.tag_color = params[:color]
+				@tag.save
+			end
+		end
 	end
+
+	# def pintag
+	# 	@tag = Tag.where(account_id: session[:account_id], id: params[:format]).first
+	# 	@tag.pinned = !@tag.pinned
+	# 	@tag.save
+	# end
+
+	# def colortag
+	# 	Tag.where(account_id: session[:account_id], id: params[:format]).update_all(tag_color: '#2a9657')
+		
+	# 	redirect_to(notes_path)
+	# end
+
 
 	def destroy
 		@note = Note.where(account_id: session[:account_id], id: params[:id]).first

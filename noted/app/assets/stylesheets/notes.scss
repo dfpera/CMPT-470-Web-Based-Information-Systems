@@ -5,7 +5,6 @@
 @import "bootstrap";
 
 $leftNav-height: 50px;
-$leftTag-height: 70px;
 $dropdown-height: 55px;
 $pad: 10px;
 
@@ -31,9 +30,9 @@ $pad: 10px;
 .notes#notes_main{
 	overflow-y: scroll;
 	overflow-x: hidden;
-	height: calc(100% - #{$leftNav-height} - #{$leftTag-height} - #{$dropdown-height});
-  height:-moz-calc(100% - #{$leftNav-height} - #{$leftTag-height} - #{$dropdown-height});
-  height:-webkit-calc(100% - #{$leftNav-height} - #{$leftTag-height} - #{$dropdown-height});
+	height: calc(100% - #{$leftNav-height} - #{$dropdown-height});
+  height:-moz-calc(100% - #{$leftNav-height} - #{$dropdown-height});
+  height:-webkit-calc(100% - #{$leftNav-height} - #{$dropdown-height});
   padding-right: $pad;
   padding-left: $pad;
   margin: 0px;
@@ -50,12 +49,17 @@ $pad: 10px;
 	color: white;
 }
 
+.notesBox > .panel-body{
+	background-color: #eaeaea;
+	border-radius: 4px;
+}
+
 .notetitle , .tagtitle{
  	overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
   display:inline-block;
-  width: 80%;
+  width: 65%;
   padding-left:10px;
 }
 
@@ -126,16 +130,6 @@ $pad: 10px;
 	background-color: transparent;  
 	border: none;
 }
-
-.leftTag{
-	height: $leftTag-height;
-	padding: $pad;
-	margin: 0px;
-}
-.lefttag > .well .tagBox{
-	margin: 0px;
-}
-
 
 /* Right side of layout */
 
@@ -214,3 +208,14 @@ $pad: 10px;
 	height: 10px;
 }
 
+.btn-sq {
+  width: 50px !important;
+  height: 50px !important;
+  margin: 5px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

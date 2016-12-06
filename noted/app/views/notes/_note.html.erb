@@ -1,6 +1,11 @@
+<% tagged_color = "#2a7eb4" %>
+<% if note.tags.empty? %>
+	<% tagged_color = "#5194ff" %>
+<% end if %>
+
 <div class="note" noteid="<%=note.id%>">
 <div class="panel panel-default container-fluid notesBox">
-	<div class = "panel-heading">
+	<div class = "panel-heading" style="background-color: <%= tagged_color %>">
 
 			<div class = "row">
 				<div class = "notetitle"><%= note.title %></div>
