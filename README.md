@@ -12,7 +12,7 @@ Password: test123
 
 Implemented Features
 NOTES AND TAGS
-- From the dashboard notes can be added, modified or deleted. During creation a user can specify the title of their note and optionally add text content or tags.
+- From the dashboard notes can be added, modified or deleted. During creation a user can specify the title of their note and optionally add text content or tags. NOTE: When adding tags to a newly created note, PRESS ENTER after each tag to add successfully to the form.
 
 - When a note has been created, that note will appear in the left hand column and by default be sorted by last updated.
 
@@ -20,7 +20,7 @@ NOTES AND TAGS
 
 - Tags can also be created without a note. When doing this a user can decide whether or not they want to pin a tag. A pinned tag can be then be sorted so that only pinned tags appear at the top of the right column.
 
-- Tag Groups can be coloured using a colour picker in the right column. By colouring the tag groups one can organize their notes further allowing them to custom groupings that are easy to distinguish. 
+- Tag Groups can be coloured using a colour picker in the right column. By colouring the tag groups one can organize their notes further allowing them to custom groupings that are easy to distinguish.
 
 SORTING
 - Notes can be sorted ascending/descending using the following fields:
